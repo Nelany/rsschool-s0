@@ -1,1 +1,39 @@
-/*# sourceMappingURL=style.css.map */
+a,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.body {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: rgb(0, 0, 0);
+  font-family: "EB Garamond", serif;
+}
+.body h1, .body h2, .body h3, .body h4 {
+  font-family: "Forum", cursive;
+}
+
+.content {
+  width: 1440px;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  background-color: rgb(12, 12, 14);
+  color: rgb(255, 255, 255);
+}
+
+.menu__ul {
+  display: flex;
+}/*# sourceMappingURL=style.css.map */

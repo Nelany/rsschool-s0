@@ -6,24 +6,40 @@
   <title>Library</title>
 
   <link rel="stylesheet" href="./style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
 </head>
-<body>
+
+
+<body class="body">
+<div class="content">
+
   <header class="header">
-    <nav class="header__menu">
-      <ul class="header__ul">
-        <li class="header__li"><a href="#about">About</a></li>
-        <li class="header__li"><a href="#favorites">Favorites</a></li>
-        <li class="header__li"><a href="#coffee">Coffee shop</a></li>
-        <li class="header__li"><a href="#contacts">Contacts</a></li>
-        <li class="header__li"><a href="#cards">Library Card</a></li>
+    <h1>Brooklyn Public Library</h1>
+
+    <nav class="menu">
+      <ul class="menu__ul">
+        <li class="menu__li"><a href="#about">About</a></li>
+        <li class="menu__li"><a href="#favorites">Favorites</a></li>
+        <li class="menu__li"><a href="#coffee">Coffee shop</a></li>
+        <li class="menu__li"><a href="#contacts">Contacts</a></li>
+        <li class="menu__li"><a href="#cards">Library Card</a></li>
       </ul>
     </nav>
+
+    <div class="header__icon-conteiner">
+      <img class="header__icon" src="./assets/icon_profile.svg" alt="profile icon">
+    </div>
   </header>
 
 
 
   <main class="main">
-    <section class="welcome"><h1 class="h1">Welcome to the Brooklyn Library</h1></section>
+    <section class="welcome"><h3 class="welcome__h2">Welcome to the Brooklyn Library</h3></section>
 
 
     <section class="about" id="about">
@@ -86,6 +102,6 @@
     <button class="footer__button"></button>
     <button class="footer__button"></button>
   </footer>
-
+</div>
 </body>
 </html>
