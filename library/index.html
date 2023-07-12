@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="./style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
@@ -21,6 +21,7 @@
   <header class="header">
     <h1>Brooklyn Public Library</h1>
 
+    <div class="header__menu-icon-conteiner">
     <nav class="menu">
       <ul class="menu__ul">
         <li class="menu__li"><a href="#about">About</a></li>
@@ -31,7 +32,6 @@
       </ul>
     </nav>
 
-    <div class="header__icon-conteiner">
       <img class="header__icon" src="./assets/icon_profile.svg" alt="profile icon">
     </div>
   </header>
@@ -39,7 +39,15 @@
 
 
   <main class="main">
-    <section class="welcome"><h3 class="welcome__h2">Welcome to the Brooklyn Library</h3></section>
+    <section class="welcome">
+      <img src="./assets/Welcome.jpg" alt="firstscreen">
+
+      <div class="welcome__gradient"></div>
+
+      <div class="welcome__h3-conteiner">
+        <h3 class="welcome__h3"><p>Welcome</p><p>to the Brooklyn</p><p>Library</p></h3>
+      </div>
+    </section>
 
 
     <section class="about" id="about">
