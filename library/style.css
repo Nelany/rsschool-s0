@@ -350,4 +350,38 @@ ul {
   font-size: 20px;
   line-height: 40px;
   letter-spacing: 2px;
+}
+
+.contacts {
+  width: 97.2%;
+}
+.contacts__h2 {
+  width: 100%;
+}
+.contacts__conteiner {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 61px;
+}
+.contacts__item {
+  margin-bottom: 20px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+.contacts__item-bold {
+  font-weight: 700;
+}
+.contacts__item-break {
+  margin-bottom: 40px;
+}
+.contacts a {
+  border-bottom: 1px solid transparent;
+  transition: all 0.4s ease;
+}
+.contacts a:hover {
+  border-bottom: 1px solid rgb(0, 0, 0);
 }/*# sourceMappingURL=style.css.map */
