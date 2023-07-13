@@ -18,14 +18,15 @@ ul {
   flex-direction: column;
   align-items: center;
   margin: 0;
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(11, 11, 13);
   font-family: "Inter", sans-serif;
 }
 .body h1,
 .body h2,
 .body h3,
 .body h4,
-.body h5 {
+.body h5,
+.body h6 {
   font-family: "Forum", cursive;
 }
 .body h2 {
@@ -200,7 +201,7 @@ ul {
   flex-wrap: wrap;
   justify-content: space-between;
   box-sizing: border-box;
-  margin-top: 37px;
+  margin-top: 40px;
   padding-right: 38px;
 }
 .favorites__item {
@@ -281,7 +282,7 @@ ul {
   font-weight: 400;
   font-size: 20px;
   line-height: 40px;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   text-align: center;
 }
 .coffee__menu-conteiner {
@@ -384,4 +385,45 @@ ul {
 }
 .contacts a:hover {
   border-bottom: 1px solid rgb(0, 0, 0);
+}
+
+.cards {
+  width: 97.2%;
+  margin-top: 40px;
+}
+.cards__h2 {
+  width: 100%;
+}
+.cards__content {
+  display: flex;
+  justify-content: space-between;
+}
+.cards__left-title {
+  font-weight: 400;
+  font-size: 30px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+.cards__inputs {
+  display: flex;
+  flex-direction: column;
+}
+.cards__title {
+  margin: 0;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 50px;
+  letter-spacing: 2px;
+}
+.cards__input {
+  font-family: "Forum", cursive;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 50px;
+  letter-spacing: 2px;
+}
+.cards__left-button {
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 1px;
 }/*# sourceMappingURL=style.css.map */

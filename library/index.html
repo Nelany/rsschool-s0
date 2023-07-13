@@ -335,7 +335,36 @@
 
 
     <section class="cards" id="cards">
-      <h2 class="cards__h2">didgital library cards</h2>
+      <h2 class="cards__h2">digital library cards</h2>
+
+      <div class="cards__content">
+        <div class="cards__item">
+          <div class="cards__left-title">Find your Library card</div>
+
+          <form class="cards__form">
+            <div class="cards__inputs">
+              <h6 class="cards__title">Brooklyn Public Library</h6>
+              <input class="cards__input" type="text" name="name" placeholder="Reader's name"  pattern="[A-Za-z]+" required>
+
+              <input class="cards__input" type="text" name="number" placeholder="Card number" pattern="[0-9\-]+" required>
+            </div>
+
+            <button class="cards__left-button" type="submit">Check the card</button>
+          </form>
+        </div>
+
+
+        <div class="cards__item">
+          <h6 class="cards__title">Get a reader card</h6>
+
+          <div class="cards__right-text">You will be able to see a reader card after logging into account or you can register a new account</div>
+
+          <div class="cards__buttons">
+            <button class="cards__right-button">Sign Up</button>
+            <button class="cards__right-button">Log in</button>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 

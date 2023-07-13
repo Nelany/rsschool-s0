@@ -20,14 +20,15 @@ ul {
   flex-direction: column;
   align-items: center;
   margin: 0;
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(11, 11, 13);
   font-family: 'Inter', sans-serif;
 
   h1,
   h2,
   h3,
   h4,
-  h5 {
+  h5,
+  h6 {
     font-family: 'Forum', cursive;
   }
 
@@ -227,7 +228,7 @@ ul {
     flex-wrap: wrap;
     justify-content: space-between;
     box-sizing: border-box;
-    margin-top: 37px;
+    margin-top: 40px;
     padding-right: 38px;
   }
 
@@ -326,7 +327,7 @@ ul {
     font-weight: 400;
     font-size: 20px;
     line-height: 40px;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     text-align: center;
   }
 
@@ -451,4 +452,51 @@ ul {
   a:hover {
     border-bottom: 1px solid rgb(0, 0, 0);
   }
+}
+
+.cards{
+  width: 97.2%;
+  margin-top: 40px;
+
+  &__h2 {
+    width: 100%;}
+
+    &__content{
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__left-title{
+      font-weight: 400;
+      font-size: 30px;
+      letter-spacing: 2px;
+      text-align: center;
+    }
+
+    &__inputs{
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__title{
+      margin: 0;
+      font-weight: 400;
+      font-size: 30px;
+      line-height: 50px;
+      letter-spacing: 2px;
+    }
+
+    &__input{
+      font-family: 'Forum', cursive;
+      font-weight: 400;
+      font-size: 30px;
+      line-height: 50px;
+      letter-spacing: 2px;
+    }
+
+    &__left-button{
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: 1px;
+    }
 }
