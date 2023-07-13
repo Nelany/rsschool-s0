@@ -24,7 +24,8 @@ ul {
 .body h1,
 .body h2,
 .body h3,
-.body h4 {
+.body h4,
+.body h5 {
   font-family: "Forum", cursive;
 }
 .body h2 {
@@ -199,7 +200,7 @@ ul {
   flex-wrap: wrap;
   justify-content: space-between;
   box-sizing: border-box;
-  margin-top: 41px;
+  margin-top: 37px;
   padding-right: 38px;
 }
 .favorites__item {
@@ -266,4 +267,87 @@ ul {
 }
 .favorites__button-disabled .favorites__buy {
   display: none;
+}
+
+.coffee {
+  width: 97.2%;
+  margin-top: 7px;
+}
+.coffee__h2 {
+  width: 100%;
+}
+.coffee__text {
+  margin: 60px 0 0 0;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 40px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+.coffee__menu-conteiner {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 26px 0 45px 0;
+}
+.coffee__menu-right {
+  width: 33.5%;
+}
+.coffee__menu-left {
+  width: 31.5%;
+}
+.coffee .body.content.coffee__menu-left {
+  text-align: start;
+}
+.coffee content.coffee__menu-right {
+  text-align: end;
+}
+.coffee__menu-name {
+  color: rgb(187, 148, 95);
+}
+.coffee .coffee__menu-name::after {
+  display: none;
+}
+.coffee .coffee__menu-name-right {
+  text-align: end;
+}
+.coffee .coffee__menu-name-left {
+  text-align: start;
+}
+.coffee__menu-item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-top: 40px;
+}
+.coffee__menu-item::after {
+  content: "";
+  width: 100px;
+  height: 1px;
+  position: absolute;
+  top: 48%;
+  right: 19%;
+  background-color: rgb(187, 148, 95);
+}
+.coffee__menu-item-name {
+  width: 47%;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+.coffee__menu-left-name {
+  text-align: start;
+}
+.coffee__menu-right-name {
+  text-align: end;
+}
+.coffee__menu-item-price {
+  margin: 0 0 0 0;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 40px;
+  letter-spacing: 2px;
 }/*# sourceMappingURL=style.css.map */
