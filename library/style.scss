@@ -215,9 +215,20 @@ ul {
     font-size: 20px;
   }
 
+  &__input-conteiner{
+    display: flex;
+  }
+
+  &__input-area{
+    display: flex;
+    margin: 0 87px 0px 0;
+  }
+
   &__season {
+    margin: 0 0 0 17px;
+    display: block;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 21px;
     text-transform: capitalize;
   }
 
@@ -378,7 +389,7 @@ ul {
     margin-top: 40px;
   }
 
-  &__menu-item::after{
+  &__menu-item::after {
     content: "";
     width: 100px;
     height: 1px;
@@ -401,7 +412,7 @@ ul {
     text-align: start;
   }
 
-  &__menu-right-name{
+  &__menu-right-name {
     text-align: end;
   }
 
@@ -414,20 +425,21 @@ ul {
   }
 }
 
-.contacts{
+.contacts {
   width: 97.2%;
 
   &__h2 {
-    width: 100%;}
+    width: 100%;
+  }
 
-  &__conteiner{
+  &__conteiner {
     width: 100%;
     display: flex;
     justify-content: space-between;
     margin-top: 61px;
   }
 
-  &__item{
+  &__item {
     margin-bottom: 20px;
     font-weight: 400;
     font-size: 20px;
@@ -436,15 +448,15 @@ ul {
     text-transform: capitalize;
   }
 
-  &__item-bold{
+  &__item-bold {
     font-weight: 700;
   }
 
-  &__item-break{
+  &__item-break {
     margin-bottom: 40px;
   }
 
-  a{
+  a {
     border-bottom: 1px solid transparent;
     transition: all 0.4s ease;
   }
@@ -454,49 +466,77 @@ ul {
   }
 }
 
-.cards{
+.cards {
   width: 97.2%;
   margin-top: 40px;
 
   &__h2 {
-    width: 100%;}
+    width: 100%;
+  }
 
-    &__content{
-      display: flex;
-      justify-content: space-between;
-    }
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+  }
 
-    &__left-title{
-      font-weight: 400;
-      font-size: 30px;
-      letter-spacing: 2px;
-      text-align: center;
-    }
+  &__left-title {
+    margin: 22px 0 30px 0;
+    font-weight: 400;
+    font-size: 30px;
+    letter-spacing: 1px;
+    text-align: center;
+  }
 
-    &__inputs{
-      display: flex;
-      flex-direction: column;
-    }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 3px solid rgb(187, 148, 95);
+  }
 
-    &__title{
-      margin: 0;
-      font-weight: 400;
-      font-size: 30px;
-      line-height: 50px;
-      letter-spacing: 2px;
-    }
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+    margin: 17px;
+    box-sizing: border-box;
+    background-color: rgb(187, 148, 95);
+  }
 
-    &__input{
-      font-family: 'Forum', cursive;
-      font-weight: 400;
-      font-size: 30px;
-      line-height: 50px;
-      letter-spacing: 2px;
-    }
+  &__title {
+    margin: 20px 0 0 20px;
+    font-weight: 400;
+    font-size: 29px;
+    line-height: 50px;
+    letter-spacing: 1px;
+  }
 
-    &__left-button{
-      font-weight: 700;
-      font-size: 20px;
-      letter-spacing: 1px;
-    }
+  &__input {
+    width: 520px;
+    height: 66px;
+    margin: 20px 20px 25px 20px;
+    padding: 8px 0 8px 20px;
+    font-family: 'Forum', cursive;
+    font-weight: 400;
+    font-size: 29px;
+    line-height: 50px;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    border: none;
+    box-sizing: border-box;
+  }
+
+  &__input:nth-of-type(2) {
+    margin: 0 20px 25px 20px;
+    ;
+  }
+
+  &__left-button {
+    width: 242px;
+    height: 44px;
+    margin: 3px 0 27px 0;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
 }

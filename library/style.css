@@ -189,9 +189,18 @@ ul {
   font-weight: 800;
   font-size: 20px;
 }
+.favorites__input-conteiner {
+  display: flex;
+}
+.favorites__input-area {
+  display: flex;
+  margin: 0 87px 0px 0;
+}
 .favorites__season {
+  margin: 0 0 0 17px;
+  display: block;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 21px;
   text-transform: capitalize;
 }
 .favorites__items-conteiner {
@@ -397,32 +406,56 @@ ul {
 .cards__content {
   display: flex;
   justify-content: space-between;
+  margin-top: 40px;
 }
 .cards__left-title {
+  margin: 22px 0 30px 0;
   font-weight: 400;
   font-size: 30px;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   text-align: center;
+}
+.cards__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 3px solid rgb(187, 148, 95);
 }
 .cards__inputs {
   display: flex;
   flex-direction: column;
+  margin: 17px;
+  box-sizing: border-box;
+  background-color: rgb(187, 148, 95);
 }
 .cards__title {
-  margin: 0;
+  margin: 20px 0 0 20px;
   font-weight: 400;
-  font-size: 30px;
+  font-size: 29px;
   line-height: 50px;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 .cards__input {
+  width: 520px;
+  height: 66px;
+  margin: 20px 20px 25px 20px;
+  padding: 8px 0 8px 20px;
   font-family: "Forum", cursive;
   font-weight: 400;
-  font-size: 30px;
+  font-size: 29px;
   line-height: 50px;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+  border-radius: 10px;
+  border: none;
+  box-sizing: border-box;
+}
+.cards__input:nth-of-type(2) {
+  margin: 0 20px 25px 20px;
 }
 .cards__left-button {
+  width: 242px;
+  height: 44px;
+  margin: 3px 0 27px 0;
   font-weight: 700;
   font-size: 20px;
   letter-spacing: 1px;
