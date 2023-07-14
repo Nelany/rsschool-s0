@@ -195,9 +195,35 @@ ul {
   }
 
   &__input {
-    width: 68px;
-    height: 20px;
-    margin: 40px 0 40px 0;
+    width: 78px;
+    height: 26px;
+    display: flex;
+    justify-content: space-between;
+    margin: 32px 0 43px 0;
+  }
+
+  &__button-lable {
+    width: 26px;
+    height: 26px;
+    position: relative;
+  }
+
+  input.about__button {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    display: block;
+    margin: 0;
+    top: 33%;
+    left: 20%;
+    appearance: none;
+    border-radius: 50%;
+    background-color: rgb(12, 12, 14);
+    transition: all 0.4s ease;
+  }
+
+  input.about__button:checked{
+    background-color: rgb(187, 148, 95);
   }
 }
 
@@ -215,20 +241,36 @@ ul {
     font-size: 20px;
   }
 
-  &__input-conteiner{
+  &__input-conteiner {
     display: flex;
   }
 
-  &__input-area{
+  &__input-area {
     display: flex;
-    margin: 0 87px 0px 0;
+    margin: 0 91px 0px 0;
+
+  }
+
+  &__input-season{
+    appearance: none;
+    width: 17px;
+    height: 17px;
+    margin: 4px 3px 0 0;
+    border-radius: 50%;
+    border: 1px solid rgb(12, 12, 14);
+  }
+
+  input.favorites__input-season:checked{
+    border: 3px solid rgb(12, 12, 14);
+    
   }
 
   &__season {
     margin: 0 0 0 17px;
     display: block;
     font-weight: 400;
-    font-size: 21px;
+    font-size: 20px;
+    letter-spacing: 0.3px;
     text-transform: capitalize;
   }
 
@@ -477,14 +519,14 @@ ul {
   &__content {
     display: flex;
     justify-content: space-between;
-    margin-top: 40px;
+    margin: 33px 0 41px 0;
   }
 
   &__left-title {
-    margin: 22px 0 30px 0;
+    margin: 28px 0 30px 0;
     font-weight: 400;
     font-size: 30px;
-    letter-spacing: 1px;
+    letter-spacing: 0.6px;
     text-align: center;
   }
 
@@ -538,5 +580,120 @@ ul {
     font-weight: 700;
     font-size: 20px;
     letter-spacing: 1px;
+  }
+
+  &__item-right {
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+  }
+
+  &__title-right {
+    text-align: end;
+  }
+
+  &__right-text {
+    margin: 26px 0 0 0;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 40px;
+    letter-spacing: 0.4px;
+    text-align: end;
+  }
+
+  &__right-button {
+    width: 75px;
+    height: 30px;
+    margin: 35px 0 0 15px;
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 19px;
+  color: rgb(255, 255, 255);
+
+  a:hover {
+    transition: all 0.4s ease;
+    color: rgb(187, 148, 95);
+  }
+
+  img:hover {
+    transition: all 0.4s ease;
+    filter: brightness(0) saturate(100%) invert(56%) sepia(37%) saturate(446%) hue-rotate(355deg) brightness(101%) contrast(92%);
+    scale: 2;
+  }
+
+  &__content {
+    width: 97.2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__section {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 400;
+  }
+
+  &__section1 {
+    min-height: 120px;
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: 0;
+    border-bottom: 1px solid rgb(255, 255, 255);
+  }
+
+  &__contacts {
+    width: 16%;
+  }
+
+  &__networks {
+    margin-top: 21px;
+
+    a {
+      margin-right: 16px;
+    }
+  }
+
+  &__hours {
+    width: 16%;
+    text-align: end;
+  }
+
+  &__hours-item {
+    margin-bottom: 11px;
+  }
+
+  &__section2 {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 46px;
+    min-height: 63px;
+    font-size: 20px;
+    line-height: 20px;
+    letter-spacing: 2px;
+  }
+
+  &__year {
+    width: 30%;
+  }
+
+  &__rs-link {
+    width: 30%;
+    text-align: center;
+  }
+
+  &__me-link {
+    width: 30%;
+    text-align: end;
   }
 }
