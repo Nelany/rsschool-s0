@@ -12,6 +12,31 @@ ul {
   list-style: none;
 }
 
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+img {
+  display: block;
+}
+
+
 // _____________________________________________________________________________________________________________________________
 
 .body {
@@ -170,6 +195,10 @@ ul {
   flex-direction: column;
   align-items: center;
 
+  h2 {
+    margin: 18px 0 0 0;
+  }
+
   &__text {
     display: inline-block;
     margin: 61px 0 20px 0;
@@ -206,6 +235,7 @@ ul {
     width: 26px;
     height: 26px;
     position: relative;
+    cursor: pointer;
   }
 
   input.about__button {
@@ -220,9 +250,10 @@ ul {
     border-radius: 50%;
     background-color: rgb(12, 12, 14);
     transition: all 0.4s ease;
+    cursor: pointer;
   }
 
-  input.about__button:checked{
+  input.about__button:checked {
     background-color: rgb(187, 148, 95);
   }
 }
@@ -247,31 +278,59 @@ ul {
 
   &__input-area {
     display: flex;
-    margin: 0 91px 0px 0;
-
+    cursor: pointer;
   }
 
-  &__input-season{
+  &__input-area:nth-of-type(4) {
+    margin-left: 12px;
+  }
+
+  &__input-season {
+    position: relative;
     appearance: none;
     width: 17px;
     height: 17px;
     margin: 4px 3px 0 0;
     border-radius: 50%;
-    border: 1px solid rgb(12, 12, 14);
+    border: 2px solid rgb(12, 12, 14);
+    cursor: pointer;
   }
 
-  input.favorites__input-season:checked{
-    border: 3px solid rgb(12, 12, 14);
-    
+  input.favorites__input-season::before {
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    background-color: inherit;
+    border-radius: 50%;
+    left: 3px;
+    top: 3px;
+    transition: all 0.4s ease;
+  }
+
+  input.favorites__input-season:checked {
+    border: 2px solid rgb(12, 12, 14);
+
+
+  }
+
+  input.favorites__input-season:checked+.favorites__season {
+    font-weight: 700;
+  }
+
+  input.favorites__input-season:checked::before {
+    background-color: rgb(12, 12, 14);
   }
 
   &__season {
+    width: 155px;
     margin: 0 0 0 17px;
     display: block;
     font-weight: 400;
     font-size: 20px;
     letter-spacing: 0.3px;
     text-transform: capitalize;
+    transition: all 0.4s ease;
   }
 
   &__items-conteiner {
@@ -348,13 +407,28 @@ ul {
     height: 30px;
     position: absolute;
     bottom: 15px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 2px;
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 1px;
+    transition: all 0.4s ease;
 
     .favorites__own {
       display: none;
     }
   }
 
+  &__button:hover {
+    border: none;
+    background-color: rgb(187, 148, 95);
+  }
+
   &__button-disabled {
+    border: 1px solid rgb(187, 148, 95);
+    color: rgb(187, 148, 95);
+
     .favorites__own {
       display: inline-block;
     }
@@ -364,6 +438,11 @@ ul {
     }
   }
 
+  &__button-disabled:hover {
+    border: 1px solid rgb(187, 148, 95);
+    background-color: rgb(255, 255, 255);
+    color: rgb(187, 148, 95);
+  }
 }
 
 .coffee {
@@ -510,7 +589,7 @@ ul {
 
 .cards {
   width: 97.2%;
-  margin-top: 40px;
+  margin-top: 45px;
 
   &__h2 {
     width: 100%;
@@ -580,6 +659,15 @@ ul {
     font-weight: 700;
     font-size: 20px;
     letter-spacing: 1px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 3px;
+    transition: all 0.4s ease;
+  }
+
+  &__left-button:hover{
+    border: none;
+    background-color: rgb(187, 148, 95);
   }
 
   &__item-right {
@@ -609,6 +697,15 @@ ul {
     font-weight: 700;
     font-size: 10px;
     letter-spacing: 1px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 3px;
+    transition: all 0.4s ease;
+  }
+
+  &__right-button:hover{
+    border: none;
+    background-color: rgb(187, 148, 95);
   }
 }
 
@@ -627,7 +724,7 @@ ul {
   img:hover {
     transition: all 0.4s ease;
     filter: brightness(0) saturate(100%) invert(56%) sepia(37%) saturate(446%) hue-rotate(355deg) brightness(101%) contrast(92%);
-    scale: 2;
+    scale: 1.8;
   }
 
   &__content {
@@ -657,10 +754,11 @@ ul {
   }
 
   &__networks {
+    display: flex;
     margin-top: 21px;
 
     a {
-      margin-right: 16px;
+      margin-right: 21px;
     }
   }
 
