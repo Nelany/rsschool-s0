@@ -446,6 +446,7 @@ html {
     border: 1px solid rgb(187, 148, 95);
     background-color: rgb(255, 255, 255);
     color: rgb(187, 148, 95);
+    cursor: default;
   }
 }
 
@@ -761,9 +762,10 @@ html {
   &__networks {
     display: flex;
     margin-top: 21px;
+    padding: 0;
 
-    a {
-      margin-right: 21px;
+    li {
+      margin-right: 20px;
     }
   }
 

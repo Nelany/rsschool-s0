@@ -393,6 +393,7 @@ html {
   border: 1px solid rgb(187, 148, 95);
   background-color: rgb(255, 255, 255);
   color: rgb(187, 148, 95);
+  cursor: default;
 }
 
 .coffee {
@@ -660,9 +661,10 @@ html {
 .footer__networks {
   display: flex;
   margin-top: 21px;
+  padding: 0;
 }
-.footer__networks a {
-  margin-right: 21px;
+.footer__networks li {
+  margin-right: 20px;
 }
 .footer__hours {
   width: 16%;
