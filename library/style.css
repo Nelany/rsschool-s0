@@ -81,6 +81,7 @@ html {
 
 .content {
   max-width: 1440px;
+  width: 100%;
 }
 
 .header {
@@ -105,6 +106,21 @@ html {
   height: auto;
   margin: 31px 20px 31px 10px;
 }
+@media (max-width: 1024px) {
+  .header__icon {
+    width: 27.25%;
+    margin: 31px 40px 31px 10px;
+  }
+}
+.header__buger {
+  display: none;
+}
+@media (max-width: 1024px) {
+  .header__buger {
+    display: block;
+    margin-right: 20px;
+  }
+}
 
 .menu {
   font-size: 20.4px;
@@ -126,20 +142,42 @@ html {
   border-bottom: 1px solid rgb(255, 255, 255);
   cursor: pointer;
 }
+@media (max-width: 1024px) {
+  .menu {
+    display: none;
+  }
+}
 
 .main {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: rgb(255, 255, 255);
   color: rgb(12, 12, 14);
+  overflow: hidden;
 }
 
 .welcome {
+  width: 100%;
   position: relative;
 }
+@media (max-width: 768px) {
+  .welcome__firstscreen {
+    display: none;
+  }
+}
+.welcome__firstscreen768 {
+  display: none;
+}
+@media (max-width: 768px) {
+  .welcome__firstscreen768 {
+    display: block;
+  }
+}
 .welcome__gradient {
-  width: 1440px;
+  max-width: 1440px;
+  width: 100%;
   height: 300px;
   position: absolute;
   top: 0;
@@ -151,6 +189,7 @@ html {
   height: 220px;
   position: absolute;
   top: 219px;
+  left: 0;
   background-color: rgb(12, 12, 14);
 }
 .welcome__h3 {
