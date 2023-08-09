@@ -88,6 +88,11 @@ html {
   position: relative;
   width: 100%;
   color: rgb(255, 255, 255);
+}
+.header__conteiner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   background-color: rgb(12, 12, 14);
@@ -100,12 +105,15 @@ html {
   letter-spacing: 0.5px;
 }
 .header__menu-icon-conteiner {
+  position: relative;
   display: flex;
 }
 .header__icon {
   width: 4.25%;
   height: auto;
   margin: 31px 20px 31px 10px;
+  transition: all 0.6s ease;
+  cursor: pointer;
 }
 @media (max-width: 1024px) {
   .header__icon {
@@ -113,68 +121,63 @@ html {
     margin: 31px 40px 31px 10px;
   }
 }
+.header__icon:hover {
+  filter: brightness(0) saturate(100%) invert(62%) sepia(46%) saturate(382%) hue-rotate(355deg) brightness(90%) contrast(86%);
+}
 .header__buger {
   display: none;
 }
 @media (max-width: 1024px) {
   .header__buger {
+    position: relative;
     display: block;
     margin-right: 20px;
+    transition: all 0.4s ease;
+    cursor: pointer;
   }
+}
+.header__buger:hover {
+  filter: brightness(0) saturate(100%) invert(62%) sepia(46%) saturate(382%) hue-rotate(355deg) brightness(90%) contrast(86%);
+}
+.header__popup-x {
+  display: none;
+  position: absolute;
+  top: 27px;
+  right: 25px;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+@media (max-width: 1024px) {
+  .header__popup-x {
+    display: block;
+  }
+}
+.header__popup-x:hover {
+  filter: brightness(0) saturate(100%) invert(62%) sepia(46%) saturate(382%) hue-rotate(355deg) brightness(90%) contrast(86%);
+}
+.header .hidden {
+  opacity: 0;
+  z-index: -1;
 }
 
 .popup {
-  position: absolute;
-  z-index: 1;
   width: 332px;
-  height: 570px;
+  height: 480px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  overflow: hidden;
+  text-align: center;
+  position: absolute;
+  box-sizing: border-box;
+  z-index: 1;
   top: -571px;
   right: 0;
+  margin: 0;
+  padding: 10px 0 0 0;
   background-color: rgb(12, 12, 14);
   transition: all 1s ease;
   font-weight: 400;
   font-size: 20px;
   line-height: 50px;
-}
-.popup__header {
-  width: 100%;
-  height: 90px;
-  display: flex;
-  justify-content: end;
-  overflow: hidden;
-  box-sizing: border-box;
-  padding: 17px 19px 0 0;
-}
-.popup__buger-x {
-  width: 35px;
-  height: 35px;
-  transition: all 0.4s ease;
-  cursor: pointer;
-}
-.popup__buger-x:hover {
-  filter: brightness(0) saturate(100%) invert(62%) sepia(46%) saturate(382%) hue-rotate(355deg) brightness(90%) contrast(86%);
-}
-.popup__icon {
-  width: 28px;
-  height: 28px;
-  margin: 3px 38px 0 0;
-  transition: all 0.4s ease;
-  cursor: pointer;
-}
-.popup__icon:hover {
-  filter: brightness(0) saturate(100%) invert(62%) sepia(46%) saturate(382%) hue-rotate(355deg) brightness(90%) contrast(86%);
-}
-.popup__items {
-  display: flex;
-  flex-direction: column;
-  margin: 10px 0 0 0;
-  padding: 0;
-  justify-content: center;
-  text-align: center;
 }
 .popup__item {
   margin-bottom: 30px;
@@ -185,8 +188,8 @@ html {
   color: rgb(187, 148, 95);
 }
 
-.popup--open {
-  top: 0;
+.open {
+  top: 90px;
 }
 
 .menu {
@@ -206,7 +209,8 @@ html {
   transition: all 0.5s ease;
 }
 .menu__li:hover {
-  border-bottom: 1px solid rgb(255, 255, 255);
+  color: rgb(187, 148, 95);
+  border-bottom: 1px solid rgb(187, 148, 95);
   cursor: pointer;
 }
 @media (max-width: 1024px) {
@@ -359,7 +363,7 @@ html {
 }
 @media (max-width: 1024px) {
   .about__input {
-    margin: 16px 0 43px 0;
+    margin: 32px 0 27px 0;
     width: 131px;
   }
 }

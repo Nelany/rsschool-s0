@@ -64,3 +64,37 @@ console.log(
   console.log("обязательное требование к интерактивности:\n плавное изменение внешнего вида\n элемента при наведении и клике\n не влияет на соседние элементы +2.")
 
 
+const burger = document.querySelector(".header__buger");
+const xPopup = document.querySelector(".header__popup-x");
+const popupItem = document.querySelector(".popup__item")
+const popup = document.querySelector(".popup");
+const body = document.body;
+
+
+
+// При клике на иконку burger вызываем ф-ию burgerHandler
+burger.addEventListener("click", burgerHandler);
+
+// выполняемая функция
+function burgerHandler(e) {
+    e.preventDefault();
+    //переключаем стили элементов
+    popup.classList.add("open");
+    xPopup.classList.remove("hidden");
+    burger.classList.add("hidden")
+}
+
+//при клике на любое место боди вызываем ф-ию closeOnClick
+body.addEventListener("click",closeOnClick);
+
+// выполняемая функция
+function closeOnClick(event) {
+  // исключаем иконку burger
+  if(event.target!=burger){
+        //переключаем стили элементов
+        popup.classList.remove("open");
+        xPopup.classList.add("hidden");
+        burger.classList.remove("hidden")
+  }
+}
+

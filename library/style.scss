@@ -94,9 +94,16 @@ html {
   position: relative;
   width: 100%;
   color: rgb(255, 255, 255);
-  display: flex;
-  justify-content: space-between;
-  background-color: rgb(12, 12, 14);
+
+
+  &__conteiner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(12, 12, 14);
+  }
 
 
   h1 {
@@ -108,6 +115,7 @@ html {
   }
 
   &__menu-icon-conteiner {
+    position: relative;
     display: flex;
   }
 
@@ -115,6 +123,8 @@ html {
     width: 4.25%;
     height: auto;
     margin: 31px 20px 31px 10px;
+    transition: all 0.6s ease;
+    cursor: pointer;
 
     @media (max-width: 1024px) {
       width: 27.25%;
@@ -122,75 +132,69 @@ html {
     }
   }
 
+  &__icon:hover {
+    filter: brightness(0) saturate(100%) invert(62%) sepia(46%) saturate(382%) hue-rotate(355deg) brightness(90%) contrast(86%);
+  }
+
   &__buger {
     display: none;
 
     @media (max-width: 1024px) {
+      position: relative;
       display: block;
       margin-right: 20px;
+      transition: all 0.4s ease;
+      cursor: pointer;
     }
+  }
+
+  &__buger:hover {
+    filter: brightness(0) saturate(100%) invert(62%) sepia(46%) saturate(382%) hue-rotate(355deg) brightness(90%) contrast(86%);
+  }
+
+  &__popup-x {
+    display: none;
+    position: absolute;
+    top: 27px;
+    right: 25px;
+    transition: all 0.4s ease;
+    cursor: pointer;
+
+    @media (max-width: 1024px){
+      display: block;
+    }
+  }
+
+  &__popup-x:hover {
+    filter: brightness(0) saturate(100%) invert(62%) sepia(46%) saturate(382%) hue-rotate(355deg) brightness(90%) contrast(86%);
+  }
+
+  .hidden{
+    opacity: 0;
+    z-index: -1;
   }
 }
 
 
 .popup {
-  position: absolute;
-  z-index: 1;
   width: 332px;
-  height: 570px;
+  height: 480px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  overflow: hidden;
+  text-align: center;
+  position: absolute;
+  box-sizing: border-box;
+  z-index: 1;
   top: -571px;
+  // top: 90px;
   right: 0;
+  margin: 0;
+  padding: 10px 0 0 0;
   background-color: rgb(12, 12, 14);
   transition: all 1s ease;
   font-weight: 400;
   font-size: 20px;
   line-height: 50px;
-
-  &__header {
-    width: 100%;
-    height: 90px;
-    display: flex;
-    justify-content: end;
-    overflow: hidden;
-    box-sizing: border-box;
-    padding: 17px 19px 0 0;
-  }
-
-  &__buger-x {
-    width: 35px;
-    height: 35px;
-    transition: all 0.4s ease;
-    cursor: pointer;
-  }
-
-  &__buger-x:hover {
-    filter: brightness(0) saturate(100%) invert(62%) sepia(46%) saturate(382%) hue-rotate(355deg) brightness(90%) contrast(86%);
-  }
-
-  &__icon {
-    width: 28px;
-    height: 28px;
-    margin: 3px 38px 0 0;
-    transition: all 0.4s ease;
-    cursor: pointer;
-  }
-
-  &__icon:hover {
-    filter: brightness(0) saturate(100%) invert(62%) sepia(46%) saturate(382%) hue-rotate(355deg) brightness(90%) contrast(86%);
-  }
-
-  &__items {
-    display: flex;
-    flex-direction: column;
-    margin: 10px 0 0 0;
-    padding: 0;
-    justify-content: center;
-    text-align: center;
-  }
 
   &__item {
     margin-bottom: 30px;
@@ -203,8 +207,8 @@ html {
   }
 }
 
-.popup--open{
-  top: 0;
+.open{
+  top: 90px;
 }
 
 
@@ -227,7 +231,8 @@ html {
   }
 
   &__li:hover {
-    border-bottom: 1px solid rgb(255, 255, 255);
+    color: rgb(187, 148, 95);
+    border-bottom: 1px solid rgb(187, 148, 95);
     cursor: pointer;
   }
 
@@ -395,7 +400,7 @@ html {
     margin: 32px 0 43px 0;
 
     @media(max-width: 1024px) {
-      margin: 16px 0 43px 0;
+      margin: 32px 0 27px 0;
       width: 131px;
     }
   }
