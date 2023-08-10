@@ -1,3 +1,11 @@
+console.log("librery part2")
+console.log("Score: 50 / 50")
+console.log("1). Вёрстка соответствует макету.\n Ширина экрана 768px +26")
+console.log("2). Ни на одном из\n разрешений до 640px\n включительно не появляется\n горизонтальная полоса прокрутки.\n Весь контент страницы\n при этом сохраняется:\n не обрезается и не\n удаляется +12")
+console.log("3). На ширине экрана 768рх\n реализовано адаптивное меню +12")
+
+
+console.log("librery part1")
 console.log(
 "1. Вёрстка валидная +10")
 
@@ -97,4 +105,5 @@ function closeOnClick(event) {
         burger.classList.remove("hidden")
   }
 }
+
 
