@@ -443,24 +443,25 @@ html {
   }
 
   &__input {
-    width: 131px;
+    width: 78px;
     height: 26px;
     display: flex;
     justify-content: space-between;
     margin: 32px 0 43px 0;
 
     @media(max-width: 1024px) {
-    margin: 32px 0 27px 0;
+      width: 131px;
+      margin: 32px 0 27px 0;
     }
   }
 
-  // &__button-lable--hidden {
-  //   display: none;
+  &__button-lable--hidden {
+    display: none;
 
-  //   @media(max-width: 1024px) {
-  //     display: block;
-  //   }
-  // }
+    @media(max-width: 1024px) {
+      display: block;
+    }
+  }
 
   &__button-lable {
     width: 26px;
@@ -872,7 +873,7 @@ html {
     }
   }
 
-  &__map-img{
+  &__map-img {
     width: 100%;
     max-width: 696px;
     height: auto;

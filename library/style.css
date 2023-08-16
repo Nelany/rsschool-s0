@@ -417,7 +417,7 @@ html {
   }
 }
 .about__input {
-  width: 131px;
+  width: 78px;
   height: 26px;
   display: flex;
   justify-content: space-between;
@@ -425,7 +425,16 @@ html {
 }
 @media (max-width: 1024px) {
   .about__input {
+    width: 131px;
     margin: 32px 0 27px 0;
+  }
+}
+.about__button-lable--hidden {
+  display: none;
+}
+@media (max-width: 1024px) {
+  .about__button-lable--hidden {
+    display: block;
   }
 }
 .about__button-lable {
