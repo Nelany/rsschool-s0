@@ -337,13 +337,13 @@ html {
 }
 @media (max-width: 1060px) {
   .about__arrow {
-    left: 0;
+    left: 7px;
   }
 }
 @media (max-width: 1024px) {
   .about__arrow {
-    left: 11.5%;
-    top: 59%;
+    left: 10%;
+    top: 59.6%;
   }
 }
 @media (max-width: 750px) {
@@ -368,12 +368,12 @@ html {
 }
 @media (max-width: 1060px) {
   .about__arrow--right {
-    right: 0;
+    right: 7px;
   }
 }
 @media (max-width: 1024px) {
   .about__arrow--right {
-    right: 11%;
+    right: 9.3%;
   }
 }
 @media (max-width: 750px) {
