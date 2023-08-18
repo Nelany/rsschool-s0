@@ -441,6 +441,100 @@
   </footer>
 </div>
 
+<div class="modal modal-log-in" id="log-in">
+  <div class="modal__content">
+    <h3 class="modal__tittle">Login</h3>
+    <img class="modal__close" src="./assets/close.svg" alt="close">
+
+    <form class="modal__form">
+      <span class="modal__name">E-mail or readers card</span>
+      <input class="modal__input" type="text" name="login" required>
+
+      <span class="modal__name">Password</span>
+      <input class="modal__input" type="text" name="password" minlength="8" required>
+
+      <button class="modal__button" type="submit">Log In</button>
+    </form>
+
+    <span class="modal__text">Don’t have an account?<a class="modal__link" href="#register">Register</a></span>
+  </div>
+</div>
+
+<div class="modal modal-register" id="register">
+  <div class="modal__content">
+    <h3 class="modal__tittle">Register</h3>
+    <img class="modal__close" src="./assets/close.svg" alt="close">
+
+    <form class="modal__form">
+      <span class="modal__name">First name</span>
+      <input class="modal__input" type="text" name="firstname" required>
+
+      <span class="modal__name">Last name</span>
+      <input class="modal__input" type="text" name="lastname" required>
+
+      <span class="modal__name">E-mail</span>
+      <input class="modal__input" type="email" name="email" required>
+
+      <span class="modal__name">Password</span>
+      <input class="modal__input" type="text" name="password" minlength="8" required>
+
+      <button class="modal__button" type="submit">Sign Up</button>
+    </form>
+
+    <span class="modal__text">Already have an account?<a class="modal__link" href="#register">Login</a></span>
+  </div>
+</div>
+
+<div class="modal modal-profile" id="profile">
+  <div class="modal-profile__content">
+    <div class="modal-profile__aside">
+      <div class="modal-profile__avatar">JD</div>
+
+      <div class="modal-profile__name">John Doe</div>
+    </div>
+
+    <div class="modal-profile__main">
+      <h3 class="modal-profile__tittle">My profile</h3>
+      <img class="modal-profile__close" src="./assets/close.svg" alt="close">
+
+      <div class="modal-profile__data">
+        <div class="modal-profile__data-item">
+          <div class="modal-profile__item-name">visits</div>
+          <img class="modal-profile__icon" src="./assets/icon1.svg" alt="">
+          <div class="modal-profile__number">23</div>
+        </div>
+
+        <div class="modal-profile__data-item">
+          <div class="modal-profile__item-name">bonuses</div>
+          <img class="modal-profile__icon" src="./assets/icon2.svg" alt="">
+          <div class="modal-profile__number">1240</div>
+        </div>
+
+        <div class="modal-profile__data-item">
+          <div class="modal-profile__item-name">Books</div>
+          <img class="modal-profile__icon" src="./assets/icon3.svg" alt="">
+          <div class="modal-profile__number">2</div>
+        </div>
+      </div>
+
+        <span class="modal-profile__text-1">Rented books</span>
+
+        <ul class="modal-profile__ul">
+          <li class="modal-profile__li">The Last Queen, Clive Irving</li>
+          <li class="modal-profile__li">Dominicana, Angie Cruz</li>
+        </ul>
+
+        <div class="modal-profile__footer">
+          <span class="modal-profile__text-2">Card number</span>
+          <span class="modal-profile__card-number">F00234030</span>
+          <img src="./assets/icon_copy.svg" alt="copy">
+        </div>
+
+    </div>
+  </div>
+</div>
+
+
 <script src="./index.js"></script>
 
 </body>

@@ -44,6 +44,7 @@ html {
 // _____________________________________________________________________________________________________________________________
 
 .body {
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -254,13 +255,13 @@ html {
     transform: translate(-50%);
   }
 
-  &__log{
+  &__log {
     display: block;
     margin-top: 10px;
     cursor: pointer;
   }
 
-  &__log:hover{
+  &__log:hover {
     font-weight: 700;
     color: rgb(187, 148, 95);
   }
@@ -1217,4 +1218,257 @@ html {
     width: 30%;
     text-align: end;
   }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: all 0.4s;
+
+  &__content {
+    position: relative;
+    box-sizing: border-box;
+    width: 250px;
+    padding: 0 25px;
+    background-color: rgb(255, 255, 255);
+  }
+
+  &__form{
+    display: flex;
+    flex-direction: column;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: 0.3px;
+  }
+
+
+&__tittle {
+  display: block;
+  text-align: center;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: 2%;
+  text-transform: uppercase;
+}
+
+&__close {
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  transition: all 0.3s;
+}
+
+&__close:hover{
+  filter: brightness(0) saturate(100%) invert(56%) sepia(37%) saturate(446%) hue-rotate(355deg) brightness(101%) contrast(92%);
+}
+
+&__input{
+  width: 200px;
+  height: 20px;
+  box-sizing: border-box;
+  margin: 10px 0 10px 0;
+  border: 1px solid rgb(187, 148, 95);
+  transition: all 0.1s;
+}
+
+&__input:hover {
+  border: 2px solid rgb(187, 148, 95);
+}
+
+&__button{
+  width: 75px;
+  height: 30px;
+  box-sizing: border-box;
+  margin: 10px 0 10px 0;
+  border: 1px solid rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 1px;
+  transition: all 0.4s;
+}
+
+&__button:hover {
+  border: none;
+  background-color: rgb(187, 148, 95);
+}
+
+&__text{
+  display: block;
+  font-weight: 400;
+  font-size: 10px;
+}
+
+&__link{
+  margin-left: 11px;
+  font-weight: 700;
+  text-decoration: underline;
+  letter-spacing: 1px;
+  transition: all 0.3s;
+}
+
+&__link:hover{
+  color: rgb(187, 148, 95);
+  text-decoration: underline;
+}
+}
+
+.modal-log-in{
+  display: none;
+
+  .modal__content {
+    height: 262px;
+  }
+}
+
+.modal-register{
+  display: none;
+
+  .modal__content {
+    height: 382px;
+  }
+}
+
+.modal-profile{
+  display: none;
+
+&__content{
+  width: 600px;
+  height: 400px;
+  display: flex;
+}
+
+&__aside{
+  width: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(12, 12, 14);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  gap: 15px;
+}
+
+&__avatar{
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  color: rgb(187, 148, 95);
+}
+
+&__name{
+  width: 120px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+}
+
+
+&__main{
+  position: relative;
+  width: 430px;
+  box-sizing: border-box;
+  padding-left: 20px;
+  background-color: rgb(255, 255, 255);
+}
+
+&__tittle{
+margin: 39px auto 0 0;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 20px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+&__close {
+  position: absolute;
+  top: 23px;
+  right: 23px;
+  transition: all 0.3s;
+}
+
+&__close:hover{
+  filter: brightness(0) saturate(100%) invert(56%) sepia(37%) saturate(446%) hue-rotate(355deg) brightness(101%) contrast(92%);
+}
+
+
+&__data{
+  width: 236px;
+  height: 81px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 41px;
+}
+
+&__data-item{
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-between;
+}
+
+&__item-name{
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  text-transform: capitalize;
+}
+
+&__number{
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 20px;
+}
+
+&__text-1{
+  display: block;
+  margin-top: 20px;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 20px;
+}
+
+&__ul{
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 30px 0 0 0;
+  padding-left: 30px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: 2px;
+}
+
+&__footer{
+  display: flex;
+  gap: 15px;
+  margin-top: 40px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+}
+
+&__card-number{
+  color: rgb(187, 148, 95);
+}
 }
