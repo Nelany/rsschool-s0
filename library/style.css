@@ -194,10 +194,6 @@ html {
   color: rgb(187, 148, 95);
 }
 
-.open {
-  top: 90px;
-}
-
 .profile-log-in {
   width: 80px;
   height: 115px;
@@ -233,14 +229,18 @@ html {
   left: 50%;
   transform: translate(-50%);
 }
-.profile-log-in__log {
+.profile-log-in__item {
   display: block;
   margin-top: 10px;
   cursor: pointer;
 }
-.profile-log-in__log:hover {
+.profile-log-in__item:hover {
   font-weight: 700;
   color: rgb(187, 148, 95);
+}
+
+.open {
+  top: 90px;
 }
 
 .disabled {
@@ -1221,23 +1221,14 @@ html {
   text-decoration: underline;
 }
 
-.modal-log-in {
-  display: none;
-}
 .modal-log-in .modal__content {
   height: 262px;
 }
 
-.modal-register {
-  display: none;
-}
 .modal-register .modal__content {
   height: 382px;
 }
 
-.modal-profile {
-  display: none;
-}
 .modal-profile__content {
   width: 600px;
   height: 400px;
@@ -1346,9 +1337,6 @@ html {
   color: rgb(187, 148, 95);
 }
 
-.modal-buycard {
-  display: none;
-}
 .modal-buycard__content {
   width: 650px;
   height: 540px;
@@ -1417,4 +1405,8 @@ html {
   line-height: 20px;
   letter-spacing: 2px;
   color: rgb(142, 142, 142);
+}
+
+.disabled {
+  display: none;
 }/*# sourceMappingURL=style.css.map */

@@ -57,10 +57,10 @@
     <div class="profile-log-in">
       <div class="profile-log-in__head">Profile</div>
       <div class="profile-log-in__content">
-        <span class="profile-log-in__log">Log In</span>
-        <span class="profile-log-in__log">Register</span>
-        <span class="profile-log-in__log disabled">My profile</span>
-        <span class="profile-log-in__log disabled">Log Out</span>
+        <span class="profile-log-in__item profile-log-in__item-login open-modal-login">Log In</span>
+        <span class="profile-log-in__item profile-log-in__item-register">Register</span>
+        <span class="profile-log-in__item profile-log-in__item-myprofile disabled">My profile</span>
+        <span class="profile-log-in__item profile-log-in__item-logout disabled">Log Out</span>
       </div>
     </div>
 
@@ -427,7 +427,7 @@
 
           <div class="cards__buttons">
             <button class="cards__right-button cards__find-card">Sign Up</button>
-            <button class="cards__right-button cards__find-card">Log in</button>
+            <button class="cards__right-button cards__find-card open-modal-login">Log in</button>
             <button class="cards__right-button cards__your-card">Profile</button>
           </div>
         </div>
@@ -468,10 +468,10 @@
   </footer>
 </div>
 
-<div class="modal modal-log-in" id="log-in">
+<div class="modal modal-log-in modal-login-closer disabled" id="log-in">
   <div class="modal__content">
     <h3 class="modal__tittle">Login</h3>
-    <img class="modal__close" src="./assets/close.svg" alt="close">
+    <div class="modal-login-closer"><img class="modal__close modal-login-closer" src="./assets/close.svg" alt="close"></div>
 
     <form class="modal__form">
       <span class="modal__name">E-mail or readers card</span>
@@ -483,11 +483,11 @@
       <button class="modal__button" type="submit">Log In</button>
     </form>
 
-    <span class="modal__text">Don’t have an account?<a class="modal__link" href="#register">Register</a></span>
+    <span class="modal__text">Don’t have an account?<span class="modal__link modal-login-closer">Register</span></span>
   </div>
 </div>
 
-<div class="modal modal-register" id="register">
+<div class="modal modal-register disabled" id="register">
   <div class="modal__content">
     <h3 class="modal__tittle">Register</h3>
     <img class="modal__close" src="./assets/close.svg" alt="close">
@@ -508,11 +508,11 @@
       <button class="modal__button" type="submit">Sign Up</button>
     </form>
 
-    <span class="modal__text">Already have an account?<a class="modal__link" href="#register">Login</a></span>
+    <span class="modal__text">Already have an account?<span class="modal__link open-modal-login">Login</span></span>
   </div>
 </div>
 
-<div class="modal modal-profile" id="profile">
+<div class="modal modal-profile disabled" id="profile">
   <div class="modal-profile__content">
     <div class="modal-profile__aside">
       <div class="modal-profile__avatar">JD</div>
@@ -561,7 +561,7 @@
   </div>
 </div>
 
-<div class="modal modal-buycard" id="buycard">
+<div class="modal modal-buycard disabled" id="buycard">
   <div class="modal-buycard__content">
     <div class="modal-buycard__header">
       <h3 class="modal-buycard__tittle">Buy a library card</h3>

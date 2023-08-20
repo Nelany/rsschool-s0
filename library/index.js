@@ -106,4 +106,62 @@ function closeOnClick(event) {
   }
 }
 
+// ________________________________________________________________
 
+
+const headerIcon = document.querySelector(".header__icon");
+const profileLogInItem = document.querySelector(".profile-log-in__item")
+const profileLogIn = document.querySelector(".profile-log-in");
+
+
+
+// При клике на иконку профиля вызываем ф-ию headerIconHandler
+headerIcon.addEventListener("click", headerIconHandler);
+
+// выполняемая функция
+function headerIconHandler(e) {
+    e.preventDefault();
+    //переключаем стили элементов
+    profileLogIn.classList.add("open");
+}
+
+//при клике на любое место боди вызываем ф-ию closeProfileLogIn
+body.addEventListener("click",closeProfileLogIn);
+
+// выполняемая функция
+function closeProfileLogIn(event) {
+  // исключаем иконку профиля
+  if(event.target!=headerIcon){
+        //переключаем стили элементов
+        profileLogIn.classList.remove("open");
+  }
+}
+
+// ________________________________________________________________
+
+const modalLogin = document.querySelector(".modal-log-in");
+
+
+//при клике на любое место боди вызываем ф-ию openModalWindow
+body.addEventListener("click",openModalWindow);
+
+// выполняемая функция
+function openModalWindow(event) {
+  //определяем, совпадает ли класс элемента, на который кликнули, с заданным
+  if(event.target.classList.contains("open-modal-login")){
+        //переключаем стили элементов
+        modalLogin.classList.remove("disabled");
+  }
+}
+
+//при клике на любое место боди вызываем ф-ию closeModalWindow
+body.addEventListener("click",closeModalWindow);
+
+// выполняемая функция
+function closeModalWindow(event) {
+  //определяем, совпадает ли класс элемента, на который кликнули, с заданным
+  if(event.target.classList.contains("modal-login-closer")){
+        //переключаем стили элементов
+        modalLogin.classList.add("disabled");
+  }
+}
