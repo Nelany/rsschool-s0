@@ -927,6 +927,7 @@ html {
   border-radius: 10px;
   border: none;
   box-sizing: border-box;
+  color: rgb(187, 148, 95);
 }
 .cards__input:nth-of-type(2) {
   margin: 0 20px 25px 20px;
@@ -946,6 +947,17 @@ html {
 .cards__left-button:hover {
   border: none;
   background-color: rgb(187, 148, 95);
+}
+.cards .cards__data {
+  width: 169px;
+  height: 63px;
+  margin-top: 0;
+  margin-bottom: 11px;
+}
+.cards .cards__item-name {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 20px;
 }
 .cards__item-right {
   width: 33%;
@@ -1014,6 +1026,9 @@ html {
 .cards__right-button:hover {
   border: none;
   background-color: rgb(187, 148, 95);
+}
+.cards .cards__your-card {
+  display: none;
 }
 
 .footer {
@@ -1273,13 +1288,8 @@ html {
   text-transform: uppercase;
 }
 .modal-profile__close {
-  position: absolute;
   top: 23px;
   right: 23px;
-  transition: all 0.3s;
-}
-.modal-profile__close:hover {
-  filter: brightness(0) saturate(100%) invert(56%) sepia(37%) saturate(446%) hue-rotate(355deg) brightness(101%) contrast(92%);
 }
 .modal-profile__data {
   width: 236px;
@@ -1334,4 +1344,77 @@ html {
 }
 .modal-profile__card-number {
   color: rgb(187, 148, 95);
+}
+
+.modal-buycard {
+  display: none;
+}
+.modal-buycard__content {
+  width: 650px;
+  height: 540px;
+  display: flex;
+  flex-direction: column;
+}
+.modal-buycard__header {
+  position: relative;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(12, 12, 14);
+  color: rgb(255, 255, 255);
+}
+.modal-buycard__tittle {
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 20px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+.modal-buycard__close {
+  top: 23px;
+  right: 23px;
+}
+.modal-buycard__main {
+  height: 100%;
+  display: flex;
+  background-color: rgb(255, 255, 255);
+}
+.modal-buycard__form {
+  width: 200px;
+  height: 408px;
+  margin: 30px 0 0 40px;
+}
+.modal-buycard__input-conteiner {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 0;
+}
+.modal-buycard__input {
+  width: 45px;
+}
+.modal-buycard__inputCVC {
+  margin-bottom: 20px;
+}
+.modal-buycard__buy-conteiner {
+  display: flex;
+}
+.modal-buycard__price {
+  display: block;
+  margin: 20px 0 0 25px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: 2px;
+}
+.modal-buycard__text {
+  width: 330px;
+  height: 160px;
+  display: block;
+  margin: 30px 0 0px 40px;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 2px;
+  color: rgb(142, 142, 142);
 }/*# sourceMappingURL=style.css.map */

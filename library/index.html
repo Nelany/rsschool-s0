@@ -379,7 +379,9 @@
 
       <div class="cards__content">
         <div class="cards__item">
-          <div class="cards__left-title">Find your Library card</div>
+          <div class="cards__left-title cards__find-card">Find your Library card</div>
+
+          <div class="cards__left-title cards__your-card">Your Library card</div>
 
           <form class="cards__form">
             <div class="cards__inputs">
@@ -389,19 +391,44 @@
               <input class="cards__input" type="text" name="number" placeholder="Card number" pattern="[0-9\-]+" required>
             </div>
 
-            <button class="cards__left-button" type="submit">Check the card</button>
+            <button class="cards__left-button  cards__find-card" type="submit">Check the card</button>
+
+            <div class="modal-profile__data cards__data cards__your-card">
+              <div class="modal-profile__data-item">
+                <div class="modal-profile__item-name cards__item-name">visits</div>
+                <img class="modal-profile__icon" src="./assets/icon1.svg" alt="">
+                <div class="modal-profile__number">23</div>
+              </div>
+
+              <div class="modal-profile__data-item">
+                <div class="modal-profile__item-name cards__item-name">bonuses</div>
+                <img class="modal-profile__icon" src="./assets/icon2.svg" alt="">
+                <div class="modal-profile__number">1240</div>
+              </div>
+
+              <div class="modal-profile__data-item">
+                <div class="modal-profile__item-name cards__item-name">Books</div>
+                <img class="modal-profile__icon" src="./assets/icon3.svg" alt="">
+                <div class="modal-profile__number">2</div>
+              </div>
+            </div>
           </form>
         </div>
 
 
         <div class="cards__item cards__item-right">
-          <h6 class="cards__title cards__title-right">Get a reader card</h6>
+          <h6 class="cards__title cards__title-right cards__find-card">Get a reader card</h6>
+          <h6 class="cards__title cards__title-right cards__your-card">Visit your profile</h6>
 
-          <div class="cards__right-text">You will be able to see a reader card after logging into account or you can register a new account</div>
+          <div class="cards__right-text cards__find-card">You will be able to see a reader card after logging into account or you can register a new account</div>
+
+          <div class="cards__right-text cards__your-card">With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.</div>
+
 
           <div class="cards__buttons">
-            <button class="cards__right-button">Sign Up</button>
-            <button class="cards__right-button">Log in</button>
+            <button class="cards__right-button cards__find-card">Sign Up</button>
+            <button class="cards__right-button cards__find-card">Log in</button>
+            <button class="cards__right-button cards__your-card">Profile</button>
           </div>
         </div>
       </div>
@@ -495,7 +522,7 @@
 
     <div class="modal-profile__main">
       <h3 class="modal-profile__tittle">My profile</h3>
-      <img class="modal-profile__close" src="./assets/close.svg" alt="close">
+      <img class="modal__close modal-profile__close" src="./assets/close.svg" alt="close">
 
       <div class="modal-profile__data">
         <div class="modal-profile__data-item">
@@ -530,6 +557,50 @@
           <img src="./assets/icon_copy.svg" alt="copy">
         </div>
 
+    </div>
+  </div>
+</div>
+
+<div class="modal modal-buycard" id="buycard">
+  <div class="modal-buycard__content">
+    <div class="modal-buycard__header">
+      <h3 class="modal-buycard__tittle">Buy a library card</h3>
+
+      <img class="modal__close modal-buycard__close" src="./assets/close_white.svg" alt="close">
+    </div>
+
+    <div class="modal-buycard__main">
+      <form class="modal__form modal-buycard__form">
+        <span class="modal__name">Bank card number</span>
+        <input class="modal__input" type="text" name="cardnumber" required>
+
+        <span class="modal__name">Expiration code</span>
+        <div class="modal-buycard__input-conteiner">
+          <input class="modal__input modal-buycard__input" type="text" name="Expiration" required>
+          <input class="modal__input modal-buycard__input" type="text" name="code" required>
+        </div>
+
+        <span class="modal__name">CVC</span>
+        <input class="modal__input modal-buycard__input modal-buycard__inputCVC" type="text" name="Expiration" required>
+
+        <span class="modal__name">Cardholder name</span>
+        <input class="modal__input" type="text" name="cardholdername" required>
+
+        <span class="modal__name">Postal code</span>
+        <input class="modal__input" type="text" name="postalcode" required>
+
+        <span class="modal__name">City / Town</span>
+        <input class="modal__input" type="text" name="citytown" required>
+
+        <div class="modal-buycard__buy-conteiner">
+          <button class="modal__button" type="submit">Buy</button>
+
+          <span class="modal-buycard__price">$ 25.00</span>
+        </div>
+      </form>
+
+      <p class="modal-buycard__text">If you are live, work, attend school, or pay property taxes in New York State, you can get a $25 digital library card right now using this online form. Visitors to New York State can also use this form to apply for a temporary card.
+      </p>
     </div>
   </div>
 </div>

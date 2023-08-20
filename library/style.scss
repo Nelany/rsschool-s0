@@ -1016,6 +1016,7 @@ html {
     border-radius: 10px;
     border: none;
     box-sizing: border-box;
+    color: rgb(187, 148, 95);
   }
 
   &__input:nth-of-type(2) {
@@ -1039,6 +1040,19 @@ html {
   &__left-button:hover {
     border: none;
     background-color: rgb(187, 148, 95);
+  }
+
+  .cards__data{
+    width: 169px;
+    height: 63px;
+    margin-top: 0;
+    margin-bottom: 11px;
+  }
+
+  .cards__item-name{
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 20px;
   }
 
   &__item-right {
@@ -1108,6 +1122,14 @@ html {
   &__right-button:hover {
     border: none;
     background-color: rgb(187, 148, 95);
+  }
+
+  &__find-card{
+    // display: none;
+  }
+
+  .cards__your-card{
+    display: none;
   }
 }
 
@@ -1241,7 +1263,7 @@ html {
     background-color: rgb(255, 255, 255);
   }
 
-  &__form{
+  &__form {
     display: flex;
     flex-direction: column;
     font-weight: 400;
@@ -1251,79 +1273,79 @@ html {
   }
 
 
-&__tittle {
-  display: block;
-  text-align: center;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 20px;
-  letter-spacing: 2%;
-  text-transform: uppercase;
+  &__tittle {
+    display: block;
+    text-align: center;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 20px;
+    letter-spacing: 2%;
+    text-transform: uppercase;
+  }
+
+  &__close {
+    position: absolute;
+    top: 13px;
+    right: 13px;
+    transition: all 0.3s;
+  }
+
+  &__close:hover {
+    filter: brightness(0) saturate(100%) invert(56%) sepia(37%) saturate(446%) hue-rotate(355deg) brightness(101%) contrast(92%);
+  }
+
+  &__input {
+    width: 200px;
+    height: 20px;
+    box-sizing: border-box;
+    margin: 10px 0 10px 0;
+    border: 1px solid rgb(187, 148, 95);
+    transition: all 0.1s;
+  }
+
+  &__input:hover {
+    border: 2px solid rgb(187, 148, 95);
+  }
+
+  &__button {
+    width: 75px;
+    height: 30px;
+    box-sizing: border-box;
+    margin: 10px 0 10px 0;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 1px;
+    transition: all 0.4s;
+  }
+
+  &__button:hover {
+    border: none;
+    background-color: rgb(187, 148, 95);
+  }
+
+  &__text {
+    display: block;
+    font-weight: 400;
+    font-size: 10px;
+  }
+
+  &__link {
+    margin-left: 11px;
+    font-weight: 700;
+    text-decoration: underline;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+  }
+
+  &__link:hover {
+    color: rgb(187, 148, 95);
+    text-decoration: underline;
+  }
 }
 
-&__close {
-  position: absolute;
-  top: 13px;
-  right: 13px;
-  transition: all 0.3s;
-}
-
-&__close:hover{
-  filter: brightness(0) saturate(100%) invert(56%) sepia(37%) saturate(446%) hue-rotate(355deg) brightness(101%) contrast(92%);
-}
-
-&__input{
-  width: 200px;
-  height: 20px;
-  box-sizing: border-box;
-  margin: 10px 0 10px 0;
-  border: 1px solid rgb(187, 148, 95);
-  transition: all 0.1s;
-}
-
-&__input:hover {
-  border: 2px solid rgb(187, 148, 95);
-}
-
-&__button{
-  width: 75px;
-  height: 30px;
-  box-sizing: border-box;
-  margin: 10px 0 10px 0;
-  border: 1px solid rgb(0, 0, 0);
-  background-color: rgb(255, 255, 255);
-  font-weight: 700;
-  font-size: 10px;
-  letter-spacing: 1px;
-  transition: all 0.4s;
-}
-
-&__button:hover {
-  border: none;
-  background-color: rgb(187, 148, 95);
-}
-
-&__text{
-  display: block;
-  font-weight: 400;
-  font-size: 10px;
-}
-
-&__link{
-  margin-left: 11px;
-  font-weight: 700;
-  text-decoration: underline;
-  letter-spacing: 1px;
-  transition: all 0.3s;
-}
-
-&__link:hover{
-  color: rgb(187, 148, 95);
-  text-decoration: underline;
-}
-}
-
-.modal-log-in{
+.modal-log-in {
   display: none;
 
   .modal__content {
@@ -1331,7 +1353,7 @@ html {
   }
 }
 
-.modal-register{
+.modal-register {
   display: none;
 
   .modal__content {
@@ -1339,136 +1361,215 @@ html {
   }
 }
 
-.modal-profile{
+.modal-profile {
   display: none;
 
-&__content{
-  width: 600px;
-  height: 400px;
-  display: flex;
+  &__content {
+    width: 600px;
+    height: 400px;
+    display: flex;
+  }
+
+  &__aside {
+    width: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(12, 12, 14);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 20px;
+    gap: 15px;
+  }
+
+  &__avatar {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    color: rgb(187, 148, 95);
+  }
+
+  &__name {
+    width: 120px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+  }
+
+
+  &__main {
+    position: relative;
+    width: 430px;
+    box-sizing: border-box;
+    padding-left: 20px;
+    background-color: rgb(255, 255, 255);
+  }
+
+  &__tittle {
+    margin: 39px auto 0 0;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 20px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+  }
+
+  &__close {
+    top: 23px;
+    right: 23px;
+  }
+
+
+  &__data {
+    width: 236px;
+    height: 81px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 41px;
+  }
+
+  &__data-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__item-name {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 20px;
+    text-transform: capitalize;
+  }
+
+  &__number {
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 20px;
+  }
+
+  &__text-1 {
+    display: block;
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 20px;
+  }
+
+  &__ul {
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 30px 0 0 0;
+    padding-left: 30px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 20px;
+    letter-spacing: 2px;
+  }
+
+  &__footer {
+    display: flex;
+    gap: 15px;
+    margin-top: 40px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 20px;
+  }
+
+  &__card-number {
+    color: rgb(187, 148, 95);
+  }
 }
 
-&__aside{
-  width: 170px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(12, 12, 14);
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 20px;
-  gap: 15px;
-}
+.modal-buycard {
+  display: none;
 
-&__avatar{
-  width: 80px;
-  height: 80px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(255, 255, 255);
-  color: rgb(187, 148, 95);
-}
+  &__content {
+    width: 650px;
+    height: 540px;
+    display: flex;
+    flex-direction: column;
+  }
 
-&__name{
-  width: 120px;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(255, 255, 255);
-}
+  &__header {
+    position: relative;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(12, 12, 14);
+    color: rgb(255, 255, 255);
+  }
 
+  &__tittle {
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 20px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+  }
 
-&__main{
-  position: relative;
-  width: 430px;
-  box-sizing: border-box;
-  padding-left: 20px;
-  background-color: rgb(255, 255, 255);
-}
+  &__close {
+    top: 23px;
+    right: 23px;
+  }
 
-&__tittle{
-margin: 39px auto 0 0;
-  font-weight: 400;
-  font-size: 40px;
-  line-height: 20px;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-}
+  &__main{
+    height: 100%;
+    display: flex;
+    background-color: rgb(255, 255, 255);
+  }
 
-&__close {
-  position: absolute;
-  top: 23px;
-  right: 23px;
-  transition: all 0.3s;
-}
+  &__form{
+    width: 200px;
+    height: 408px;
+    margin: 30px 0 0 40px;
+  }
 
-&__close:hover{
-  filter: brightness(0) saturate(100%) invert(56%) sepia(37%) saturate(446%) hue-rotate(355deg) brightness(101%) contrast(92%);
-}
+  &__input-conteiner{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 0;
+  }
 
+  &__input{
+    width: 45px;
+  }
 
-&__data{
-  width: 236px;
-  height: 81px;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 41px;
-}
+  &__inputCVC{
+    margin-bottom: 20px;
+  }
 
-&__data-item{
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: space-between;
-}
+  &__buy-conteiner{
+    display: flex;
+  }
 
-&__item-name{
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 20px;
-  text-transform: capitalize;
-}
+  &__price{
+    display: block;
+    margin: 20px 0 0 25px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 20px;
+    letter-spacing: 2px;
+  }
 
-&__number{
-  font-weight: 400;
-  font-size: 10px;
-  line-height: 20px;
-}
-
-&__text-1{
-  display: block;
-  margin-top: 20px;
-  font-weight: 400;
-  font-size: 25px;
-  line-height: 20px;
-}
-
-&__ul{
-  height: 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: 30px 0 0 0;
-  padding-left: 30px;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 20px;
-  letter-spacing: 2px;
-}
-
-&__footer{
-  display: flex;
-  gap: 15px;
-  margin-top: 40px;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 20px;
-}
-
-&__card-number{
-  color: rgb(187, 148, 95);
-}
+  &__text{
+    width: 330px;
+    height: 160px;
+    display: block;
+    margin: 30px 0 0px 40px;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: 2px;
+    color: rgb(142, 142, 142);
+  }
 }
