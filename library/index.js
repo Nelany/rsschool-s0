@@ -140,6 +140,9 @@ function closeProfileLogIn(event) {
 // ________________________________________________________________
 
 const modalLogin = document.querySelector(".modal-log-in");
+const modalRegister = document.querySelector(".modal-register");
+const modalProfile = document.querySelector(".modal-profile");
+const modalBuycard = document.querySelector(".modal-buycard");
 
 
 //при клике на любое место боди вызываем ф-ию openModalWindow
@@ -151,7 +154,19 @@ function openModalWindow(event) {
   if(event.target.classList.contains("open-modal-login")){
         //переключаем стили элементов
         modalLogin.classList.remove("disabled");
-  }
+  //определяем, совпадает ли класс элемента, на который кликнули, с заданным
+  } else if(event.target.classList.contains("open-modal-register")){
+        //переключаем стили элементов
+        modalRegister.classList.remove("disabled");
+  //определяем, совпадает ли класс элемента, на который кликнули, с заданным
+} else if(event.target.classList.contains("open-modal-profile")){
+  //переключаем стили элементов
+  modalProfile.classList.remove("disabled");
+  //определяем, совпадает ли класс элемента, на который кликнули, с заданным
+} else if(event.target.classList.contains("open-modal-buycard")){
+  //переключаем стили элементов
+  modalBuycard.classList.remove("disabled");
+}
 }
 
 //при клике на любое место боди вызываем ф-ию closeModalWindow
@@ -163,5 +178,18 @@ function closeModalWindow(event) {
   if(event.target.classList.contains("modal-login-closer")){
         //переключаем стили элементов
         modalLogin.classList.add("disabled");
-  }
+  //определяем, совпадает ли класс элемента, на который кликнули, с заданным
+  } else if(event.target.classList.contains("modal-register-closer")){
+        //переключаем стили элементов
+        modalRegister.classList.add("disabled");
+  //определяем, совпадает ли класс элемента, на который кликнули, с заданным
+} else if(event.target.classList.contains("modal-profile-closer")){
+  //переключаем стили элементов
+  modalProfile.classList.add("disabled");
+//определяем, совпадает ли класс элемента, на который кликнули, с заданным
+} else if(event.target.classList.contains("modal-buycard-closer")){
+  //переключаем стили элементов
+  modalBuycard.classList.add("disabled");
 }
+}
+
