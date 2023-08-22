@@ -193,3 +193,67 @@ function closeModalWindow(event) {
 }
 }
 
+// ________________________________________________________________
+
+  const slider = document.querySelector('.about__images');
+  const slides = document.querySelectorAll('.about__img');
+  const prevButton = document.querySelector('.about__arrow--left');
+  const nextButton = document.querySelector('.about__arrow--right');
+  const pages = document.querySelectorAll('.about__button');
+
+  let currentIndex = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide) => {
+      slide.style.transform = `translateX(${index * -105.5}%)`;
+    });
+  }
+
+  function prevSlide() {
+    if (currentIndex > 0) {
+      currentIndex--;
+    } else {
+      currentIndex = slides.length - 5;
+    }
+    showSlide(currentIndex);
+  }
+
+  function nextSlide() {
+    if (currentIndex < slides.length - 5) {
+      currentIndex++;
+    } else {
+      currentIndex = 0;
+    }
+    showSlide(currentIndex);
+  }
+
+  function activatePage(index) {
+    pages.forEach((page, i) => {
+      if (i === index) {
+        page.classList.add('active');
+      } else {
+        page.classList.remove('active');
+      }
+    });
+  }
+
+  pages.forEach((page, index) => {
+    page.addEventListener('click', () => {
+      currentIndex = index;
+      showSlide(currentIndex);
+      activatePage(currentIndex);
+    });
+  });
+
+  prevButton.addEventListener('click', () => {
+    prevSlide();
+    activatePage(currentIndex);
+  });
+
+  nextButton.addEventListener('click', () => {
+    nextSlide();
+    activatePage(currentIndex);
+  });
+
+  showSlide(currentIndex);
+  activatePage(currentIndex);

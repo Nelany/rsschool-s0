@@ -85,7 +85,7 @@
 
       <span class="about__text">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside </span>
 
-      <img class="about__arrow" src="./assets/arrow_left.svg" alt="arrow">
+      <img class="about__arrow about__arrow--left" src="./assets/arrow_left.svg" alt="arrow">
 
       <div class="about__images">
         <img class="about__img" src="./assets/image1.jpg" alt="image 1">
@@ -572,16 +572,16 @@
     <div class="modal-buycard__main">
       <form class="modal__form modal-buycard__form">
         <span class="modal__name">Bank card number</span>
-        <input class="modal__input" type="text" name="cardnumber" required>
+        <input class="modal__input" type="text" name="cardnumber" minlength="16" maxlength="16" required>
 
         <span class="modal__name">Expiration code</span>
         <div class="modal-buycard__input-conteiner">
-          <input class="modal__input modal-buycard__input" type="text" name="Expiration" required>
-          <input class="modal__input modal-buycard__input" type="text" name="code" required>
+          <input class="modal__input modal-buycard__input" type="text" name="Expiration" minlength="2" maxlength="2" required>
+          <input class="modal__input modal-buycard__input" type="text" name="code" minlength="2" maxlength="2" required>
         </div>
 
         <span class="modal__name">CVC</span>
-        <input class="modal__input modal-buycard__input modal-buycard__inputCVC" type="text" name="Expiration" required>
+        <input class="modal__input modal-buycard__input modal-buycard__inputCVC" type="text" name="Expiration" minlength="3" maxlength="3" required>
 
         <span class="modal__name">Cardholder name</span>
         <input class="modal__input" type="text" name="cardholdername" required>

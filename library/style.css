@@ -243,10 +243,6 @@ html {
   top: 90px;
 }
 
-.disabled {
-  display: none;
-}
-
 .menu {
   font-size: 20.4px;
   line-height: 50px;
@@ -438,7 +434,9 @@ html {
   width: 100%;
   height: auto;
   display: flex;
-  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  gap: 25px;
 }
 @media (max-width: 1430px) {
   .about__images {
@@ -448,22 +446,6 @@ html {
 @media (max-width: 1024px) {
   .about__images {
     justify-content: center;
-  }
-}
-.about__img:nth-last-of-type(1) {
-  display: none;
-}
-.about__img:nth-last-of-type(2) {
-  display: none;
-}
-@media (max-width: 1430px) {
-  .about__img:nth-last-of-type(3) {
-    display: none;
-  }
-}
-@media (max-width: 1024px) {
-  .about__img:nth-last-of-type(4) {
-    display: none;
   }
 }
 .about__input {
@@ -1338,7 +1320,7 @@ html {
 }
 
 .modal-buycard__content {
-  width: 650px;
+  width: 640px;
   height: 540px;
   display: flex;
   flex-direction: column;
@@ -1361,7 +1343,7 @@ html {
 }
 .modal-buycard__close {
   top: 23px;
-  right: 23px;
+  right: 18px;
 }
 .modal-buycard__main {
   height: 100%;
@@ -1371,7 +1353,7 @@ html {
 .modal-buycard__form {
   width: 200px;
   height: 408px;
-  margin: 30px 0 0 40px;
+  margin: 30px 0 0 35px;
 }
 .modal-buycard__input-conteiner {
   display: flex;
