@@ -362,10 +362,15 @@ html {
 }
 @media (max-width: 1430px) {
   .about__arrow {
-    display: block;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     left: 6%;
     top: 52%;
+    transform: translatex(-4px) translateY(-2px);
     margin-right: 5px;
     transition: all 0.4s ease;
     cursor: pointer;
@@ -400,7 +405,7 @@ html {
 .about__arrow--right {
   left: auto;
   right: 6%;
-  transform: rotate(180deg);
+  transform: translatex(4px) translateY(-2px) rotate(180deg);
 }
 @media (max-width: 1200px) {
   .about__arrow--right {
@@ -445,7 +450,7 @@ html {
 }
 @media (max-width: 1024px) {
   .about__images {
-    justify-content: center;
+    max-width: 451px;
   }
 }
 .about__input {
@@ -454,6 +459,11 @@ html {
   display: flex;
   justify-content: space-between;
   margin: 32px 0 43px 0;
+}
+@media (max-width: 1430px) {
+  .about__input {
+    width: 104px;
+  }
 }
 @media (max-width: 1024px) {
   .about__input {
@@ -466,6 +476,11 @@ html {
 }
 @media (max-width: 1024px) {
   .about__button-lable--hidden {
+    display: block;
+  }
+}
+@media (max-width: 1430px) {
+  .about__button-lable--hidden-first {
     display: block;
   }
 }

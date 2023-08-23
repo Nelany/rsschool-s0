@@ -399,10 +399,15 @@ html {
     display: none;
 
     @media (max-width: 1430px) {
-      display: block;
+      width: 15px;
+      height: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       position: absolute;
       left: 6%;
       top: 52%;
+      transform: translatex(-4px) translateY(-2px);
       margin-right: 5px;
       transition: all 0.4s ease;
       cursor: pointer;
@@ -433,7 +438,7 @@ html {
   &__arrow--right {
     left: auto;
     right: 6%;
-    transform: rotate(180deg);
+    transform: translatex(4px) translateY(-2px) rotate(180deg);
 
     @media (max-width: 1200px) {
       right: 3%;
@@ -475,7 +480,7 @@ html {
     }
 
     @media(max-width: 1024px) {
-      justify-content: center;
+      max-width: 451px;
     }
   }
 
@@ -507,6 +512,10 @@ html {
     justify-content: space-between;
     margin: 32px 0 43px 0;
 
+    @media(max-width: 1430px) {
+      width: 104px;
+    }
+
     @media(max-width: 1024px) {
       width: 131px;
       margin: 32px 0 27px 0;
@@ -517,6 +526,12 @@ html {
     display: none;
 
     @media(max-width: 1024px) {
+      display: block;
+    }
+  }
+
+  &__button-lable--hidden-first{
+    @media(max-width: 1430px) {
       display: block;
     }
   }
