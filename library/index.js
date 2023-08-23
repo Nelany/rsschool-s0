@@ -261,3 +261,41 @@ function closeModalWindow(event) {
 
   showSlide(currentIndex);
   activatePage(currentIndex);
+
+
+  // ________________________________________________________________
+
+
+  const radios = document.querySelectorAll('.favorites__input-season');
+  const elements = document.querySelectorAll('.favorites__item');
+
+  radios.forEach((radio) => {
+    radio.addEventListener('click', function(event) { // Вернули функцию обратно
+      if (event.target.checked) {
+        const selectorId = event.target.id; // Получаем id радио-кнопки
+        toggleVisibility(selectorId)
+      }
+    }
+    );
+  });
+
+  function toggleVisibility(selectorId){
+    elements.forEach((element) => {
+
+      if (element.classList.contains(selectorId)) {
+          element.classList.remove('disabled'); // Удаляем класс 'disabled' у элементa
+          element.classList.add('hidden-slide');
+
+          setTimeout(() => {
+            element.classList.remove('hidden-slide');
+          }, 600);
+
+      } else {
+          element.classList.add('hidden-slide');
+
+          setTimeout(() => {
+            element.classList.add('disabled'); //  Добавляем класс 'disabled' к остальныь элементам
+          }, 500);
+      }
+  });
+  }
