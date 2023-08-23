@@ -466,6 +466,11 @@ html {
     filter: brightness(0) saturate(100%) invert(62%) sepia(46%) saturate(382%) hue-rotate(355deg) brightness(90%) contrast(86%);
   }
 
+  .inactive{
+    cursor: default;
+    filter: brightness(0) saturate(20%) invert(34%) sepia(12%) saturate(9%) hue-rotate(358deg) brightness(90%) contrast(20%);
+  }
+
   &__images {
     width: 100%;
     height: auto;
