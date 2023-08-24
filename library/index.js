@@ -382,17 +382,22 @@ function ifRegistered (){
 // Проверяем, зарегистрирован ли пользователь
 const savedFirstname = localStorage.getItem('savedFirstname');
 const savedLastname = localStorage.getItem('savedLastname');
+const modalProfileAvatar = document.querySelector('.modal-profile__avatar');
+const modalProfileName = document.querySelector('.modal-profile__name');
 
 
 if (savedFirstname && savedLastname) {
   // Если пользователь зарегистрирован, используем первые буквы имени и фамилии для аватарки
   const avatarText = `${savedFirstname.charAt(0)}${savedLastname.charAt(0)}`;
+  const fullNameText = `${savedFirstname} ${savedLastname}`;
 
   defaultAvatar.classList.add('disabled');
   personalAvatar.classList.remove('disabled');
 
   // Устанавливаем текст аватарки
   personalAvatar.textContent = avatarText;
+  modalProfileAvatar.textContent = avatarText;
+  modalProfileName.textContent = fullNameText;
 
 
 }else{
