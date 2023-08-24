@@ -1,11 +1,11 @@
-console.log("librery part2")
+console.log("library part2")
 console.log("Score: 50 / 50")
 console.log("1). Вёрстка соответствует макету.\n Ширина экрана 768px +26")
 console.log("2). Ни на одном из\n разрешений до 640px\n включительно не появляется\n горизонтальная полоса прокрутки.\n Весь контент страницы\n при этом сохраняется:\n не обрезается и не\n удаляется +12")
 console.log("3). На ширине экрана 768рх\n реализовано адаптивное меню +12")
 
 
-console.log("librery part1")
+console.log("library part1")
 console.log(
 "1. Вёрстка валидная +10")
 
@@ -69,15 +69,19 @@ console.log(
 
   console.log("интерактивность элементов\n согласно макету. +2.")
 
-  console.log("обязательное требование к интерактивности:\n плавное изменение внешнего вида\n элемента при наведении и клике\n не влияет на соседние элементы +2.")
+  console.log("обязательное требование к интерактивности:\n плавное изменение внешнего вида\n элемента при наведении и клике\n не влияет на соседние элементы +2.");
 
+
+(function () {
+
+  // ________________________________________________________________
+  // БУРГЕР
 
 const burger = document.querySelector(".header__buger");
 const xPopup = document.querySelector(".header__popup-x");
 const popupItem = document.querySelector(".popup__item")
 const popup = document.querySelector(".popup");
 const body = document.body;
-
 
 
 // При клике на иконку burger вызываем ф-ию burgerHandler
@@ -106,38 +110,45 @@ function closeOnClick(event) {
   }
 }
 
+
+
+
 // ________________________________________________________________
+// ОКНО profile
 
 
-const headerIcon = document.querySelector(".header__icon");
-const profileLogInItem = document.querySelector(".profile-log-in__item")
-const profileLogIn = document.querySelector(".profile-log-in");
-
+const profile = document.querySelector(".profile");
+const defaultAvatar = document.querySelector(".default-avatar");
+const personalAvatar = document.querySelector('.personal-avatar');
 
 
 // При клике на иконку профиля вызываем ф-ию headerIconHandler
-headerIcon.addEventListener("click", headerIconHandler);
+defaultAvatar.addEventListener("click", headerIconHandler);
 
 // выполняемая функция
 function headerIconHandler(e) {
     e.preventDefault();
     //переключаем стили элементов
-    profileLogIn.classList.add("open");
+    profile.classList.toggle("open");
 }
 
 //при клике на любое место боди вызываем ф-ию closeProfileLogIn
-body.addEventListener("click",closeProfileLogIn);
+body.addEventListener("click",closeProfile);
 
 // выполняемая функция
-function closeProfileLogIn(event) {
+function closeProfile(event) {
   // исключаем иконку профиля
-  if(event.target!=headerIcon){
+  if(event.target!=defaultAvatar){
         //переключаем стили элементов
-        profileLogIn.classList.remove("open");
+        profile.classList.remove("open");
   }
 }
 
+
+
+
 // ________________________________________________________________
+// МОДАЛЬНЫЕ ОКНА
 
 const modalLogin = document.querySelector(".modal-log-in");
 const modalRegister = document.querySelector(".modal-register");
@@ -193,7 +204,12 @@ function closeModalWindow(event) {
 }
 }
 
+
+
+
+
 // ________________________________________________________________
+// СЛАЙДЕР about
 
   const slider = document.querySelector('.about__images');
   const slides = document.querySelectorAll('.about__img');
@@ -259,7 +275,6 @@ function closeModalWindow(event) {
   });
 
   function activateArrows(){
-    console.log(currentIndex);
     if(currentIndex===0) {
       prevButton.classList.add('inactive');
       nextButton.classList.remove('inactive');
@@ -278,7 +293,13 @@ function closeModalWindow(event) {
   activatePage(currentIndex);
 
 
+
+
+
+
+
   // ________________________________________________________________
+  // СЛАЙДЕР favorites
 
 
   const radios = document.querySelectorAll('.favorites__input-season');
@@ -314,3 +335,98 @@ function closeModalWindow(event) {
       }
   });
   }
+
+
+
+
+
+
+  // ________________________________________________________________
+  // РЕГИСТРАЦИЯ
+
+  // ОКНО РЕГИСТРАЦИИ localStorage
+
+
+  const firstname = document.querySelector('.firstname');
+  const lastname = document.querySelector('.lastname');
+  const email = document.querySelector('.email');
+  const password = document.querySelector('.password');
+  const profileMyprofile = document.querySelector(".profile-myprofile");
+
+
+// Слушаем событие отправки формы
+document.getElementById('register-form').addEventListener('submit', function(event) {
+  event.preventDefault(); // Предотвращаем стандартное действие отправки формы
+
+// Сохраняем данные в localStorage
+localStorage.setItem('savedFirstname', firstname.value);
+localStorage.setItem('savedLastname', lastname.value);
+localStorage.setItem('savedEmail', email.value);
+localStorage.setItem('savedPassword', password.value);
+modalRegister.classList.add('disabled');
+ifRegistered ();
+});
+
+  // ________________________________________________________________
+// ЕСЛИ ПОЛЬЗОВАТЕЛЬ ЗАРЕГИСТРИРОВАН
+
+
+// Меняем аватар defaultAvatar на personalAvatar
+  // ________________________________________________________________
+// ПРОВЕРКА РЕГИСТРАЦИИ
+
+
+  ifRegistered ();
+
+function ifRegistered (){
+// Проверяем, зарегистрирован ли пользователь
+const savedFirstname = localStorage.getItem('savedFirstname');
+const savedLastname = localStorage.getItem('savedLastname');
+
+
+if (savedFirstname && savedLastname) {
+  // Если пользователь зарегистрирован, используем первые буквы имени и фамилии для аватарки
+  const avatarText = `${savedFirstname.charAt(0)}${savedLastname.charAt(0)}`;
+
+  defaultAvatar.classList.add('disabled');
+  personalAvatar.classList.remove('disabled');
+
+  // Устанавливаем текст аватарки
+  personalAvatar.textContent = avatarText;
+
+
+}else{
+  defaultAvatar.classList.remove('disabled');
+  personalAvatar.classList.add('disabled');
+}
+}
+
+
+// ________________________________________________________________
+// ОКНО profile-myprofile
+
+
+
+// При клике на иконку профиля вызываем ф-ию personalAvatarHandler
+personalAvatar.addEventListener("click", personalAvatarHandler);
+
+// выполняемая функция
+function personalAvatarHandler(e) {
+  console.log('hi')
+    e.preventDefault();
+    //переключаем стили элементов
+    profileMyprofile.classList.toggle("open");
+}
+
+//при клике на любое место боди вызываем ф-ию closeProfileMyprofile
+body.addEventListener("click",closeProfileMyprofile);
+
+// выполняемая функция
+function closeProfileMyprofile(event) {
+  // исключаем иконку профиля
+  if(event.target!=personalAvatar){
+        //переключаем стили элементов
+        profileMyprofile.classList.remove("open");
+  }
+}
+})()

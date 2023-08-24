@@ -38,7 +38,8 @@
         </ul>
       </nav>
 
-        <img class="header__icon" src="./assets/icon_profile.svg" alt="profile icon">
+        <img class="header__icon default-avatar disabled" src="./assets/icon_profile.svg" alt="profile icon">
+        <div class="header__icon personal-avatar">JD</div>
 
         <img class="header__buger" src="./assets/burger.svg" alt="menu">
         <img class="header__popup-x hidden" src="./assets/burger_x.svg" alt="close menu">
@@ -54,13 +55,19 @@
       <li class="popup__item"><a href="#cards">Library Card</a></li>
     </ul>
 
-    <div class="profile-log-in">
+    <div class="profile-log-in profile">
       <div class="profile-log-in__head">Profile</div>
       <div class="profile-log-in__content">
         <span class="profile-log-in__item profile-log-in__item-login open-modal-login">Log In</span>
         <span class="profile-log-in__item profile-log-in__item-register open-modal-register">Register</span>
-        <span class="profile-log-in__item profile-log-in__item-myprofile open-modal-profile disabled">My profile</span>
-        <span class="profile-log-in__item profile-log-in__item-logout disabled">Log Out</span>
+      </div>
+    </div>
+
+    <div class="profile-log-in profile-myprofile">
+      <div class="profile-log-in__head">Profile</div>
+      <div class="profile-log-in__content">
+        <span class="profile-log-in__item profile-log-in__item-myprofile open-modal-profile">My profile</span>
+        <span class="profile-log-in__item profile-log-in__item-logout">Log Out</span>
       </div>
     </div>
 
@@ -492,18 +499,18 @@
     <h3 class="modal__tittle">Register</h3>
     <div class="modal-register-closer"><img class="modal__close modal-register-closer" src="./assets/close.svg" alt="close"></div>
 
-    <form class="modal__form">
+    <form class="modal__form" id="register-form">
       <span class="modal__name">First name</span>
-      <input class="modal__input" type="text" name="firstname" required>
+      <input class="modal__input firstname" type="text" name="firstname" required>
 
       <span class="modal__name">Last name</span>
-      <input class="modal__input" type="text" name="lastname" required>
+      <input class="modal__input lastname" type="text" name="lastname" required>
 
       <span class="modal__name">E-mail</span>
-      <input class="modal__input" type="email" name="email" required>
+      <input class="modal__input email" type="email" name="email" required>
 
       <span class="modal__name">Password</span>
-      <input class="modal__input" type="text" name="password" minlength="8" required>
+      <input class="modal__input password" type="text" name="password" minlength="8" required>
 
       <button class="modal__button" type="submit">Sign Up</button>
     </form>

@@ -137,6 +137,39 @@ html {
     filter: brightness(0) saturate(100%) invert(62%) sepia(46%) saturate(382%) hue-rotate(355deg) brightness(90%) contrast(86%);
   }
 
+  .personal-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    color: rgb(187, 148, 95);
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: 0;
+    text-transform: uppercase;
+
+    @media (max-width: 1024px) {
+      width: 28px;
+      height: 28px;
+      margin: 31px 40px 33px 10px;
+    }
+  }
+
+  .personal-avatar:hover {
+    background-color: rgb(187, 148, 95);
+    filter:none;
+    color: rgb(0, 0, 0);
+  }
+
+
+  .disabled {
+    display: none;
+  }
+
   &__buger {
     display: none;
 
@@ -235,6 +268,10 @@ html {
   color: black;
   transition: all 1s ease;
 
+  @media (max-width: 1024px) {
+    right: 78px;
+  }
+
   &__head {
     position: relative;
     margin: 5px 0 10px 0;
@@ -263,6 +300,7 @@ html {
     font-weight: 700;
     color: rgb(187, 148, 95);
   }
+
 }
 
 .open {
@@ -466,7 +504,7 @@ html {
     filter: brightness(0) saturate(100%) invert(62%) sepia(46%) saturate(382%) hue-rotate(355deg) brightness(90%) contrast(86%);
   }
 
-  .inactive{
+  .inactive {
     cursor: default;
     filter: brightness(0) saturate(20%) invert(34%) sepia(12%) saturate(9%) hue-rotate(358deg) brightness(90%) contrast(20%);
   }
@@ -491,7 +529,7 @@ html {
     }
   }
 
-  &__img{
+  &__img {
     transition: all 1s;
     opacity: 1;
   }
@@ -542,7 +580,7 @@ html {
     }
   }
 
-  &__button-lable--hidden-first{
+  &__button-lable--hidden-first {
     @media(max-width: 1430px) {
       display: block;
     }

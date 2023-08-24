@@ -125,6 +125,36 @@ html {
 .header__icon:hover {
   filter: brightness(0) saturate(100%) invert(62%) sepia(46%) saturate(382%) hue-rotate(355deg) brightness(90%) contrast(86%);
 }
+.header .personal-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  color: rgb(187, 148, 95);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+@media (max-width: 1024px) {
+  .header .personal-avatar {
+    width: 28px;
+    height: 28px;
+    margin: 31px 40px 33px 10px;
+  }
+}
+.header .personal-avatar:hover {
+  background-color: rgb(187, 148, 95);
+  filter: none;
+  color: rgb(0, 0, 0);
+}
+.header .disabled {
+  display: none;
+}
 .header__buger {
   display: none;
 }
@@ -212,6 +242,11 @@ html {
   background-color: rgb(255, 255, 255);
   color: black;
   transition: all 1s ease;
+}
+@media (max-width: 1024px) {
+  .profile-log-in {
+    right: 78px;
+  }
 }
 .profile-log-in__head {
   position: relative;
