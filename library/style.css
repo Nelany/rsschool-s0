@@ -312,7 +312,6 @@ html {
   align-items: center;
   background-color: rgb(255, 255, 255);
   color: rgb(12, 12, 14);
-  overflow: hidden;
 }
 
 .welcome {
@@ -557,19 +556,38 @@ html {
 
 .favorites {
   width: 97.2%;
+  height: 1434px;
 }
-.favorites__h2 {
+@media (max-width: 1230px) {
+  .favorites {
+    height: 2620px;
+  }
+}
+.favorites .favorites__h2 {
   width: 100%;
+  margin: 15px 0 50px 0;
+}
+.favorites .favorites__input-sticky {
+  top: 0;
+  width: 100%;
+  z-index: 4;
+  padding: 10px 0 15px 0;
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+}
+@media (max-width: 1230px) {
+  .favorites .favorites__input-sticky {
+    position: sticky;
+  }
 }
 .favorites__input-name {
   display: inline-block;
-  margin: 62px 0 0 0;
   font-weight: 800;
   font-size: 20px;
 }
 @media (max-width: 1024px) {
   .favorites__input-name {
-    margin: 62px 0 0 9px;
+    margin: 0 0 0 9px;
   }
 }
 .favorites__input-conteiner {
@@ -639,11 +657,11 @@ html {
 .favorites .favorites__items-conteiner {
   position: relative;
   width: 100%;
-  height: 1230px;
+  height: 1216px;
 }
 @media (max-width: 1230px) {
   .favorites .favorites__items-conteiner {
-    height: 2415px;
+    height: 2402px;
   }
 }
 .favorites__item-group {
@@ -654,7 +672,7 @@ html {
   flex-wrap: wrap;
   justify-content: space-between;
   box-sizing: border-box;
-  margin-top: 40px;
+  margin-top: 27px;
   padding-right: 38px;
   transition: all 1s ease-in-out;
   opacity: 1;
