@@ -310,45 +310,77 @@ console.log(
 
   // ОКНО РЕГИСТРАЦИИ localStorage
 
-  const firstname = document.querySelector(".firstname");
-  const lastname = document.querySelector(".lastname");
-  const email = document.querySelector(".email");
-  const password = document.querySelector(".password");
+  // const firstname = document.querySelector(".firstname");
+  // const lastname = document.querySelector(".lastname");
+  // const email = document.querySelector(".email");
+  // const password = document.querySelector(".password");
   const profileMyprofile = document.querySelector(".profile-myprofile");
 
   // Слушаем событие отправки формы
-  document
-    .getElementById("register-form")
-    .addEventListener("submit", function (event) {
+  const registrationForm=document.getElementById("register-form")
+
+  registrationForm.addEventListener("submit", function (event) {
       event.preventDefault(); // Предотвращаем стандартное действие отправки формы
 
       // Сохраняем данные в localStorage
-      localStorage.setItem("savedFirstname", firstname.value);
-      localStorage.setItem("savedLastname", lastname.value);
-      localStorage.setItem("savedEmail", email.value);
-      localStorage.setItem("savedPassword", password.value);
-      modalRegister.classList.add("disabled");
-      ifRegistered();
+      // localStorage.setItem("savedFirstname", firstname.value);
+      // localStorage.setItem("savedLastname", lastname.value);
+      // localStorage.setItem("savedEmail", email.value);
+      // localStorage.setItem("savedPassword", password.value);
+      // modalRegister.classList.add("disabled");
+      // ifRegistered();
+
+      const userFirstname = document.querySelector(".firstname").value;
+      const userLastname = document.querySelector(".lastname").value;
+      const userEmail = document.querySelector(".email").value;
+      const userPassword = document.querySelector(".password").value;
+
+      // Создаем объект с данными пользователя
+      const userData = {
+        firstname: userFirstname, // Сохраняем данные как пары ключ-значение
+        lastname: userLastname,
+        email: userEmail,
+        password: userPassword,
+      };
+
+      // Сохраняем объект userData в localStorage с ключом, равным email
+      localStorage.setItem(userEmail, JSON.stringify(userData));
+      // Сохраняем в localStorage переменную со значением, равным email авторизованного в данный момент пользователя
+      localStorage.setItem("authorized", userData.email);
+
+      registrationForm.reset(); // очищаем форму после сохранения
+      modalRegister.classList.add("disabled"); // закрываем окно регистрации
+      ifRegistered(); // вызываем функцию, меняющую вид авторизованной страници
     });
 
   // ________________________________________________________________
   // ЕСЛИ ПОЛЬЗОВАТЕЛЬ ЗАРЕГИСТРИРОВАН
 
-  // Меняем аватар defaultAvatar на personalAvatar
+  // Меняем аватар defaultAvatar на personalAvatar итд
   // ________________________________________________________________
   // ПРОВЕРКА РЕГИСТРАЦИИ
 
   ifRegistered();
 
   function ifRegistered() {
-    // Проверяем, зарегистрирован ли пользователь
-    const savedFirstname = localStorage.getItem("savedFirstname");
-    const savedLastname = localStorage.getItem("savedLastname");
+     // запрашиваем из localStorage переменную с Email авторизованного в данный момент пользователя
+    const authorizedEmail = localStorage.getItem("authorized");
+    if (!authorizedEmail) { // Если ее не существует - дефолтная страница, остановка функции
+      defaultAvatar.classList.remove("disabled");
+      personalAvatar.classList.add("disabled");
+      return;
+    }
+    const authorizedUserData = localStorage.getItem(authorizedEmail); // получаем строку с данными пользователя
+    const userObject = JSON.parse(authorizedUserData); // и делаем из него объект
+
+    // Проверяем, зарегистрирован ли пользователь:
+    const savedFirstname = userObject.firstname; // получаем из объекта с данными пользователя нужные
+    const savedLastname = userObject.lastname;
     const modalProfileAvatar = document.querySelector(".modal-profile__avatar");
     const modalProfileName = document.querySelector(".modal-profile__name");
 
     if (savedFirstname && savedLastname) {
-      // Если пользователь зарегистрирован, используем первые буквы имени и фамилии для аватарки
+      // Если данные существуют - пользователь зарегистрирован, используем первые буквы имени и фамилии для аватарки итд
       const avatarText = `${savedFirstname.charAt(0)}${savedLastname.charAt(
         0
       )}`;
@@ -357,13 +389,11 @@ console.log(
       defaultAvatar.classList.add("disabled");
       personalAvatar.classList.remove("disabled");
 
-      // Устанавливаем текст аватарки
+      // Устанавливаем текст аватаров, имя, атрибут title
       personalAvatar.textContent = avatarText;
+      personalAvatar.title = fullNameText;
       modalProfileAvatar.textContent = avatarText;
       modalProfileName.textContent = fullNameText;
-    } else {
-      defaultAvatar.classList.remove("disabled");
-      personalAvatar.classList.add("disabled");
     }
   }
 
@@ -400,3 +430,5 @@ console.log(
 const logOutButton = document.querySelector(".profile-log-in__item-logout");
 
 logOutButton.addEventListener("click", closeProfileMyprofile);
+
+function closeProfileMyprofile() {}

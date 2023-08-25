@@ -255,7 +255,7 @@ html {
   z-index: 1;
   // top: 90px;
   top: -114px;
-  right: 0;
+  right: 14px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -269,7 +269,7 @@ html {
   transition: all 1s ease;
 
   @media (max-width: 1024px) {
-    right: 78px;
+    right: 99px;
   }
 
   &__head {
