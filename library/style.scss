@@ -707,7 +707,19 @@ html {
     }
   }
 
-  &__items-conteiner {
+  .favorites__items-conteiner {
+    position: relative;
+    width: 100%;
+    height: 1230px;
+
+    @media (max-width: 1230px) {
+      height: 2415px;
+    }
+  }
+
+
+  &__item-group {
+    position: absolute;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -716,6 +728,8 @@ html {
     box-sizing: border-box;
     margin-top: 40px;
     padding-right: 38px;
+    transition: all 1s ease-in-out;
+    opacity: 1;
 
     @media (max-width: 1230px) {
       flex-direction: column;

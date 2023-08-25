@@ -636,7 +636,18 @@ html {
   text-transform: capitalize;
   transition: all 0.4s ease;
 }
-.favorites__items-conteiner {
+.favorites .favorites__items-conteiner {
+  position: relative;
+  width: 100%;
+  height: 1230px;
+}
+@media (max-width: 1230px) {
+  .favorites .favorites__items-conteiner {
+    height: 2415px;
+  }
+}
+.favorites__item-group {
+  position: absolute;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -645,9 +656,11 @@ html {
   box-sizing: border-box;
   margin-top: 40px;
   padding-right: 38px;
+  transition: all 1s ease-in-out;
+  opacity: 1;
 }
 @media (max-width: 1230px) {
-  .favorites__items-conteiner {
+  .favorites__item-group {
     flex-direction: column;
     align-items: center;
   }

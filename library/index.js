@@ -303,7 +303,7 @@ function closeModalWindow(event) {
 
 
   const radios = document.querySelectorAll('.favorites__input-season');
-  const elements = document.querySelectorAll('.favorites__item');
+  const elements = document.querySelectorAll('.favorites__item-group');
 
   radios.forEach((radio) => {
     radio.addEventListener('click', function(event) { // Вернули функцию обратно
@@ -315,23 +315,18 @@ function closeModalWindow(event) {
     );
   });
 
+
+
+
   function toggleVisibility(selectorId){
+
     elements.forEach((element) => {
 
       if (element.classList.contains(selectorId)) {
-          element.classList.remove('disabled'); // Удаляем класс 'disabled' у элементa
-          element.classList.add('hidden-slide');
-
-          setTimeout(() => {
-            element.classList.remove('hidden-slide');
-          }, 600);
+          element.classList.remove('hidden-slide');
 
       } else {
           element.classList.add('hidden-slide');
-
-          setTimeout(() => {
-            element.classList.add('disabled'); //  Добавляем класс 'disabled' к остальныь элементам
-          }, 500);
       }
   });
   }
@@ -435,3 +430,17 @@ function closeProfileMyprofile(event) {
   }
 }
 })()
+
+
+
+
+
+// ________________________________________________________________
+// LOG OUT
+
+
+const logOutButton = document.querySelector('.profile-log-in__item-logout');
+
+
+
+logOutButton.addEventListener("click",closeProfileMyprofile);
