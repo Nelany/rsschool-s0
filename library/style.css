@@ -317,6 +317,7 @@ html {
 .welcome {
   width: 100%;
   position: relative;
+  overflow: hidden;
 }
 @media (max-width: 768px) {
   .welcome__firstscreen {
@@ -1102,10 +1103,6 @@ html {
   border: none;
   background-color: rgb(187, 148, 95);
 }
-.cards .cards__your-card {
-  display: none;
-}
-
 .footer {
   width: 100%;
   display: flex;

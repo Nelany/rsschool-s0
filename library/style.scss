@@ -348,6 +348,7 @@ html {
 .welcome {
   width: 100%;
   position: relative;
+  overflow: hidden;
 
   &__firstscreen {
     @media (max-width: 768px) {
@@ -1229,7 +1230,7 @@ html {
   }
 
   .cards__your-card {
-    display: none;
+    // display: none;
   }
 }
 

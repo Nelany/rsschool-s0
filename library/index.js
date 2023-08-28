@@ -149,6 +149,7 @@ console.log(
 
   const modalLogin = document.querySelector(".modal-log-in");
   const modalRegister = document.querySelector(".modal-register");
+  const registrationForms = document.querySelectorAll(".modal__form");
   const modalProfile = document.querySelector(".modal-profile");
   const modalBuycard = document.querySelector(".modal-buycard");
 
@@ -185,25 +186,36 @@ console.log(
     if (event.target.classList.contains("modal-login-closer")) {
       //переключаем стили элементов
       modalLogin.classList.add("disabled");
+      registrationForms.forEach((element) => {
+        element.reset();
+      }); // очищаем формы
       //определяем, совпадает ли класс элемента, на который кликнули, с заданным
     } else if (event.target.classList.contains("modal-register-closer")) {
       //переключаем стили элементов
       modalRegister.classList.add("disabled");
+      registrationForms.forEach((element) => {
+        element.reset();
+      }); // очищаем формы
       //определяем, совпадает ли класс элемента, на который кликнули, с заданным
     } else if (event.target.classList.contains("modal-profile-closer")) {
       //переключаем стили элементов
       modalProfile.classList.add("disabled");
+      registrationForms.forEach((element) => {
+        element.reset();
+      }); // очищаем формы
       //определяем, совпадает ли класс элемента, на который кликнули, с заданным
     } else if (event.target.classList.contains("modal-buycard-closer")) {
       //переключаем стили элементов
       modalBuycard.classList.add("disabled");
+      registrationForms.forEach((element) => {
+        element.reset();
+      }); // очищаем формы
     }
   }
 
   // ________________________________________________________________
   // СЛАЙДЕР about
 
-  const slider = document.querySelector(".about__images");
   const slides = document.querySelectorAll(".about__img");
   const prevButton = document.querySelector(".about__arrow--left");
   const nextButton = document.querySelector(".about__arrow--right");
@@ -306,95 +318,111 @@ console.log(
   }
 
   // ________________________________________________________________
-  // РЕГИСТРАЦИЯ
+  // РЕГИСТРАЦИЯ и localStorage
 
-  // ОКНО РЕГИСТРАЦИИ localStorage
-
-  // const firstname = document.querySelector(".firstname");
-  // const lastname = document.querySelector(".lastname");
-  // const email = document.querySelector(".email");
-  // const password = document.querySelector(".password");
+  // ОКНО РЕГИСТРАЦИИ
   const profileMyprofile = document.querySelector(".profile-myprofile");
 
   // Слушаем событие отправки формы
-  const registrationForm=document.getElementById("register-form")
+  const registrationForm = document.getElementById("register-form");
 
   registrationForm.addEventListener("submit", function (event) {
-      event.preventDefault(); // Предотвращаем стандартное действие отправки формы
+    event.preventDefault(); // Предотвращаем стандартное действие отправки формы
 
-      // Сохраняем данные в localStorage
-      // localStorage.setItem("savedFirstname", firstname.value);
-      // localStorage.setItem("savedLastname", lastname.value);
-      // localStorage.setItem("savedEmail", email.value);
-      // localStorage.setItem("savedPassword", password.value);
-      // modalRegister.classList.add("disabled");
-      // ifRegistered();
+    // Сохраняем данные в localStorage
+    // localStorage.setItem("savedFirstname", firstname.value);
+    // localStorage.setItem("savedLastname", lastname.value);
+    // localStorage.setItem("savedEmail", email.value);
+    // localStorage.setItem("savedPassword", password.value);
+    // modalRegister.classList.add("disabled");
+    // ifRegistered();
 
-      const userFirstname = document.querySelector(".firstname").value;
-      const userLastname = document.querySelector(".lastname").value;
-      const userEmail = document.querySelector(".email").value;
-      const userPassword = document.querySelector(".password").value;
+    // Получаем введенные пользователем данные формы
+    const userFirstname = document.querySelector(".firstname").value;
+    const userLastname = document.querySelector(".lastname").value;
+    const userEmail = document.querySelector(".email").value;
+    const userPassword = document.querySelector(".password").value;
 
-      // Создаем объект с данными пользователя
-      const userData = {
-        firstname: userFirstname, // Сохраняем данные как пары ключ-значение
-        lastname: userLastname,
-        email: userEmail,
-        password: userPassword,
-      };
+    // Создаем объект с данными пользователя
+    const userData = {
+      firstname: userFirstname, // Сохраняем данные как пары ключ-значение
+      lastname: userLastname,
+      email: userEmail,
+      password: userPassword,
+    };
 
-      // Сохраняем объект userData в localStorage с ключом, равным email
-      localStorage.setItem(userEmail, JSON.stringify(userData));
-      // Сохраняем в localStorage переменную со значением, равным email авторизованного в данный момент пользователя
-      localStorage.setItem("authorized", userData.email);
+    // Сохраняем объект userData в localStorage с ключом, равным email
+    localStorage.setItem(userEmail, JSON.stringify(userData));
+    // Сохраняем в localStorage переменную со значением, равным email авторизованного в данный момент пользователя
+    localStorage.setItem("authorized", userData.email);
 
-      registrationForm.reset(); // очищаем форму после сохранения
-      modalRegister.classList.add("disabled"); // закрываем окно регистрации
-      ifRegistered(); // вызываем функцию, меняющую вид авторизованной страници
-    });
+    registrationForm.reset(); // очищаем форму после сохранения
+    modalRegister.classList.add("disabled"); // закрываем окно регистрации
+
+    ifAuthorised(); // вызываем функцию, меняющую вид авторизованной страници
+  });
 
   // ________________________________________________________________
-  // ЕСЛИ ПОЛЬЗОВАТЕЛЬ ЗАРЕГИСТРИРОВАН
+  // ПРОВЕРКА АВТОРИЗАЦИИ - меняем вид авторизованной страници
 
   // Меняем аватар defaultAvatar на personalAvatar итд
   // ________________________________________________________________
-  // ПРОВЕРКА РЕГИСТРАЦИИ
+  //
 
-  ifRegistered();
+  const elementsYourCard = document.querySelectorAll(".cards__your-card");
+  const elementsFindCard = document.querySelectorAll(".cards__find-card");
+  let userCardsName = document.querySelector(".cards__your-name");
 
-  function ifRegistered() {
-     // запрашиваем из localStorage переменную с Email авторизованного в данный момент пользователя
+  ifAuthorised();
+
+  function ifAuthorised() {
+    // запрашиваем из localStorage переменную с Email авторизованного в данный момент пользователя
     const authorizedEmail = localStorage.getItem("authorized");
-    if (!authorizedEmail) { // Если ее не существует - дефолтная страница, остановка функции
+    if (!authorizedEmail) {
+      // Если ее не существует - дефолтная страница, остановка функции
       defaultAvatar.classList.remove("disabled");
       personalAvatar.classList.add("disabled");
-      return;
+
+      // дефолтный вид секции cards
+      elementsYourCard.forEach((element) => {
+        element.classList.add("disabled");
+      });
+      elementsFindCard.forEach((element) => {
+        element.classList.remove("disabled");
+      });
+
+      return; // И останавливаем дальнейшее выполнение функции
     }
+
     const authorizedUserData = localStorage.getItem(authorizedEmail); // получаем строку с данными пользователя
     const userObject = JSON.parse(authorizedUserData); // и делаем из него объект
 
-    // Проверяем, зарегистрирован ли пользователь:
     const savedFirstname = userObject.firstname; // получаем из объекта с данными пользователя нужные
     const savedLastname = userObject.lastname;
     const modalProfileAvatar = document.querySelector(".modal-profile__avatar");
     const modalProfileName = document.querySelector(".modal-profile__name");
 
-    if (savedFirstname && savedLastname) {
-      // Если данные существуют - пользователь зарегистрирован, используем первые буквы имени и фамилии для аватарки итд
-      const avatarText = `${savedFirstname.charAt(0)}${savedLastname.charAt(
-        0
-      )}`;
-      const fullNameText = `${savedFirstname} ${savedLastname}`;
+    // используем первые буквы имени и фамилии для аватарки итд
+    const avatarText = `${savedFirstname.charAt(0)}${savedLastname.charAt(0)}`;
+    const fullNameText = `${savedFirstname} ${savedLastname}`;
 
-      defaultAvatar.classList.add("disabled");
-      personalAvatar.classList.remove("disabled");
+    defaultAvatar.classList.add("disabled");
+    personalAvatar.classList.remove("disabled");
 
-      // Устанавливаем текст аватаров, имя, атрибут title
-      personalAvatar.textContent = avatarText;
-      personalAvatar.title = fullNameText;
-      modalProfileAvatar.textContent = avatarText;
-      modalProfileName.textContent = fullNameText;
-    }
+    // Устанавливаем текст аватаров, имя, атрибут title
+    personalAvatar.textContent = avatarText;
+    personalAvatar.title = fullNameText;
+    modalProfileAvatar.textContent = avatarText;
+    modalProfileName.textContent = fullNameText;
+
+    // меняем вид секции cards
+    elementsYourCard.forEach((element) => {
+      element.classList.remove("disabled");
+    });
+    elementsFindCard.forEach((element) => {
+      element.classList.add("disabled");
+    });
+    userCardsName.value = fullNameText;
   }
 
   // ________________________________________________________________
@@ -422,13 +450,54 @@ console.log(
       profileMyprofile.classList.remove("open");
     }
   }
+
+  // ________________________________________________________________
+  // LOG OUT
+
+  const logOutButton = document.querySelector(".profile-log-in__item-logout");
+
+  logOutButton.addEventListener("click", logOut);
+
+  function logOut() {
+    localStorage.removeItem("authorized"); // удаляем из localStorage данные о залогиненом в данный момент пользователе
+    ifAuthorised(); // вызываем функцию, меняющую вид страници на соответствующую
+  }
+
+  // ________________________________________________________________
+  // LOG IN
+
+  const loginForm = document.querySelector(".login-form");
+
+  loginForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const loginField = document.querySelector(".login-form__login");
+    const passwordField = document.querySelector(".login-form__password");
+    const authorizedUserData = localStorage.getItem(loginField.value); // получаем строку с данными пользователя
+
+    // проверяем, существует ли она, чтобы не поломался JSON.parse
+    if (authorizedUserData) {
+      const userObject = JSON.parse(authorizedUserData); // и делаем из неe объект
+      const savedEmail = userObject.email; // получаем из объекта с данными пользователя нужные
+      const savedPassword = userObject.password;
+
+      function ifRegistered() {
+        if (
+          loginField.value === savedEmail &&
+          passwordField.value === savedPassword
+        ) {
+          // Сохраняем в localStorage переменную со значением, равным email авторизованного только что пользователя
+          localStorage.setItem("authorized", savedEmail);
+          ifAuthorised(); // вызываем функцию, меняющую вид авторизованной страници
+        }
+      }
+      ifRegistered();
+
+      modalLogin.classList.add("disabled"); // закрываем окно
+      registrationForms.forEach((element) => {
+        element.reset();
+      }); // очищаем формы
+    }
+  });
 })();
-
-// ________________________________________________________________
-// LOG OUT
-
-const logOutButton = document.querySelector(".profile-log-in__item-logout");
-
-logOutButton.addEventListener("click", closeProfileMyprofile);
-
-function closeProfileMyprofile() {}
+// ВОТ ТУТ КОД НЕ ПИСАТЬ!!!>:)
