@@ -274,6 +274,10 @@ html {
   color: rgb(187, 148, 95);
 }
 
+.profile-myprofile-number {
+  font-size: 12px;
+}
+
 .open {
   top: 90px;
 }
@@ -553,6 +557,7 @@ html {
 }
 .about input.about__button:checked {
   background-color: rgb(187, 148, 95);
+  cursor: auto;
 }
 
 .favorites {

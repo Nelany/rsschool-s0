@@ -303,6 +303,10 @@ html {
 
 }
 
+.profile-myprofile-number{
+  font-size: 12px;
+}
+
 .open {
   top: 90px;
 }
@@ -610,6 +614,7 @@ html {
 
   input.about__button:checked {
     background-color: rgb(187, 148, 95);
+    cursor: auto;
   }
 }
 

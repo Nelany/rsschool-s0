@@ -342,6 +342,8 @@ console.log(
     const userLastname = document.querySelector(".lastname").value;
     const userEmail = document.querySelector(".email").value;
     const userPassword = document.querySelector(".password").value;
+    // Получаем случайный номер, сгенерированный с помощью соответствующей функции
+    const usercardNumber = generateCardNumber();
 
     // Создаем объект с данными пользователя
     const userData = {
@@ -349,18 +351,35 @@ console.log(
       lastname: userLastname,
       email: userEmail,
       password: userPassword,
+      cardNumber: usercardNumber,
     };
 
     // Сохраняем объект userData в localStorage с ключом, равным email
     localStorage.setItem(userEmail, JSON.stringify(userData));
     // Сохраняем в localStorage переменную со значением, равным email авторизованного в данный момент пользователя
     localStorage.setItem("authorized", userData.email);
+    // Сохраняем объект userData в localStorage с ключом, равным cardNumber
+    localStorage.setItem(usercardNumber, JSON.stringify(userData));
 
     registrationForm.reset(); // очищаем форму после сохранения
     modalRegister.classList.add("disabled"); // закрываем окно регистрации
 
     ifAuthorised(); // вызываем функцию, меняющую вид авторизованной страници
   });
+
+  // ________________________________________________________________
+  // Генерация случайного 16-ричного номера карты
+
+  function generateCardNumber() {
+    // Генерируем случайное девятизначное число
+    const randomNumber = Math.floor(Math.random() * 900000000 + 100000000);
+
+    // Преобразуем это число в 16-ричную строку
+    const hexCardNumber = randomNumber.toString(16);
+
+    // Возвращаем полученное значение
+    return hexCardNumber;
+  }
 
   // ________________________________________________________________
   // ПРОВЕРКА АВТОРИЗАЦИИ - меняем вид авторизованной страници
@@ -372,6 +391,7 @@ console.log(
   const elementsYourCard = document.querySelectorAll(".cards__your-card");
   const elementsFindCard = document.querySelectorAll(".cards__find-card");
   let userCardsName = document.querySelector(".cards__your-name");
+  let cardNumber = document.querySelectorAll(".card-number");
 
   ifAuthorised();
 
@@ -399,13 +419,16 @@ console.log(
 
     const savedFirstname = userObject.firstname; // получаем из объекта с данными пользователя нужные
     const savedLastname = userObject.lastname;
+    const savedCardNumber = userObject.cardNumber;
     const modalProfileAvatar = document.querySelector(".modal-profile__avatar");
     const modalProfileName = document.querySelector(".modal-profile__name");
+
 
     // используем первые буквы имени и фамилии для аватарки итд
     const avatarText = `${savedFirstname.charAt(0)}${savedLastname.charAt(0)}`;
     const fullNameText = `${savedFirstname} ${savedLastname}`;
 
+    // меняем аватар
     defaultAvatar.classList.add("disabled");
     personalAvatar.classList.remove("disabled");
 
@@ -415,6 +438,12 @@ console.log(
     modalProfileAvatar.textContent = avatarText;
     modalProfileName.textContent = fullNameText;
 
+    // записывам на странице нужный номер карты в соответствующих местах
+    cardNumber.forEach((element) => {
+      element.textContent = savedCardNumber;
+      element.value = savedCardNumber;
+    });
+
     // меняем вид секции cards
     elementsYourCard.forEach((element) => {
       element.classList.remove("disabled");
@@ -423,6 +452,7 @@ console.log(
       element.classList.add("disabled");
     });
     userCardsName.value = fullNameText;
+
   }
 
   // ________________________________________________________________
@@ -480,10 +510,11 @@ console.log(
       const userObject = JSON.parse(authorizedUserData); // и делаем из неe объект
       const savedEmail = userObject.email; // получаем из объекта с данными пользователя нужные
       const savedPassword = userObject.password;
+      const savedCardNumber = userObject.cardNumber;
 
       function ifRegistered() {
         if (
-          loginField.value === savedEmail &&
+          loginField.value === savedEmail || loginField.value === savedCardNumber &&
           passwordField.value === savedPassword
         ) {
           // Сохраняем в localStorage переменную со значением, равным email авторизованного только что пользователя
@@ -499,5 +530,8 @@ console.log(
       }); // очищаем формы
     }
   });
+
+  // ________________________________________________________________
+  //
 })();
 // ВОТ ТУТ КОД НЕ ПИСАТЬ!!!>:)
