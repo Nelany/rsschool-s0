@@ -745,28 +745,26 @@
                     type="text"
                     name="name"
                     placeholder="Reader's name"
-                    pattern="[A-Za-z]+"
                     value=""
                     required />
 
                   <input
-                    class="cards__input card-number"
+                    class="cards__input card-number cards__number"
                     type="text"
                     name="number"
                     placeholder="Card number"
-                    pattern="[0-9\-]+"
                     value=""
                     required />
                 </div>
 
                 <button
-                  class="cards__left-button cards__find-card"
+                  class="cards__left-button cards__find-card cards__find-card-button"
                   type="submit">
                   Check the card
                 </button>
 
                 <div
-                  class="modal-profile__data cards__data cards__your-card disabled">
+                  class="modal-profile__data cards__data cards__your-card cards__your-card-data disabled">
                   <div class="modal-profile__data-item">
                     <div class="modal-profile__item-name cards__item-name">
                       visits
@@ -775,7 +773,7 @@
                       class="modal-profile__icon"
                       src="./assets/icon1.svg"
                       alt="" />
-                    <div class="modal-profile__number">23</div>
+                    <div class="modal-profile__number visits-number">1</div>
                   </div>
 
                   <div class="modal-profile__data-item">
@@ -797,7 +795,7 @@
                       class="modal-profile__icon"
                       src="./assets/icon3.svg"
                       alt="" />
-                    <div class="modal-profile__number">2</div>
+                    <div class="modal-profile__number books-number">0</div>
                   </div>
                 </div>
               </form>
@@ -1007,7 +1005,7 @@
                 class="modal-profile__icon"
                 src="./assets/icon1.svg"
                 alt="" />
-              <div class="modal-profile__number">23</div>
+              <div class="modal-profile__number visits-number">23</div>
             </div>
 
             <div class="modal-profile__data-item">
@@ -1025,7 +1023,7 @@
                 class="modal-profile__icon"
                 src="./assets/icon3.svg"
                 alt="" />
-              <div class="modal-profile__number">2</div>
+              <div class="modal-profile__number books-number">2</div>
             </div>
           </div>
 

@@ -156,7 +156,60 @@ console.log(
   //при клике на любое место боди вызываем ф-ию openModalWindow
   body.addEventListener("click", openModalWindow);
 
-  // выполняемая функция
+  // ________________________________________________________________
+  // кнопка покупки книг(вызывающая окно покупки карты, если таковой нет)
+
+  function buyHandler() {
+    const authorizedEmail = localStorage.getItem("authorized");
+
+    if (!authorizedEmail) {
+      //переключаем стили элементов
+      modalLogin.classList.remove("disabled");
+      return;
+    }
+
+    const authorizedUserData = localStorage.getItem(authorizedEmail); // получаем строку с данными пользователя
+    const userObject = JSON.parse(authorizedUserData); // и делаем из него объект
+
+    const isCard = userObject.isCard; // получаем из объекта с данными пользователя нужныe
+
+    if (!isCard) {
+      //переключаем стили элементов
+      modalBuycard.classList.remove("disabled");
+
+      // модальное окно покупки карты
+      const buyCardForm = document.querySelector(".modal-buycard__form");
+
+      buyCardForm.addEventListener(
+        "submit",
+        function (event) {
+          event.preventDefault(); // Предотвращаем стандартное действие отправки формы
+
+          userObject.isCard = true; // получаем данные о покупке карты, меняем на true
+          const updatedUserData = JSON.stringify(userObject); // создаем новую строку для объекта
+          const savedEmail = userObject.email;
+          const savedCardNumber = userObject.cardNumber;
+
+          // Сохраняем эту строку обратно в Local Storage в 2 объекта, заведенных на каждого юзера
+          localStorage.setItem(savedEmail, updatedUserData); // по Email
+          localStorage.setItem(savedCardNumber, updatedUserData); // и по CardNumber
+
+          //закрываем и очищаем форму покупки карты
+          modalBuycard.classList.add("disabled");
+          buyCardForm.reset(); // очищаем поля формы
+        },
+        { once: true }
+      );
+
+      return;
+    }
+  }
+
+
+  // ________________________________________________________________
+  // ModalWindows close/open
+
+  // при клике на любое место боди вызываем ф-ию openModalWindow
   function openModalWindow(event) {
     //определяем, совпадает ли класс элемента, на который кликнули, с заданным
     if (event.target.classList.contains("open-modal-login")) {
@@ -172,8 +225,7 @@ console.log(
       modalProfile.classList.remove("disabled");
       //определяем, совпадает ли класс элемента, на который кликнули, с заданным
     } else if (event.target.classList.contains("open-modal-buycard")) {
-      //переключаем стили элементов
-      modalBuycard.classList.remove("disabled");
+      buyHandler();
     }
   }
 
@@ -352,6 +404,9 @@ console.log(
       email: userEmail,
       password: userPassword,
       cardNumber: usercardNumber,
+      visits: 1,
+      isCard: false,
+      books: [],
     };
 
     // Сохраняем объект userData в localStorage с ключом, равным email
@@ -392,6 +447,9 @@ console.log(
   const elementsFindCard = document.querySelectorAll(".cards__find-card");
   let userCardsName = document.querySelector(".cards__your-name");
   let cardNumber = document.querySelectorAll(".card-number");
+  const findCardButton = document.querySelector(".cards__find-card-button");
+  const cardForm = document.querySelector(".cards__form");
+  const yourCardData = document.querySelector(".cards__your-card-data");
 
   ifAuthorised();
 
@@ -423,7 +481,6 @@ console.log(
     const modalProfileAvatar = document.querySelector(".modal-profile__avatar");
     const modalProfileName = document.querySelector(".modal-profile__name");
 
-
     // используем первые буквы имени и фамилии для аватарки итд
     const avatarText = `${savedFirstname.charAt(0)}${savedLastname.charAt(0)}`;
     const fullNameText = `${savedFirstname} ${savedLastname}`;
@@ -452,7 +509,80 @@ console.log(
       element.classList.add("disabled");
     });
     userCardsName.value = fullNameText;
+    // Обновляем счетчики на странице
+    updateVisits(userObject);
+    updateBooks(userObject);
+    // показываем данные о карте
+    showCard();
+  }
 
+  // ________________________________________________________________
+  // Функци, обновляющие счетчики визитов и книг
+
+  function updateVisits(userObject) {
+    // Обновляем счетчик визитов на странице
+    let visitsNumbers = document.querySelectorAll(".visits-number");
+    visitsNumbers.forEach((visitsNumber) => {
+      visitsNumber.textContent = userObject.visits;
+    });
+  }
+
+  function updateBooks(userObject) {
+    // Обновляем счетчик книг на странице
+    let booksNumbers = document.querySelectorAll(".books-number");
+    booksNumbers.forEach((booksNumber) => {
+      booksNumber.textContent = userObject.books.length;
+    });
+  }
+
+  // ________________________________________________________________
+  // Функция, вызывающая showCard и отменяющая ее действия через 10 сек
+  function toggleCardData(event) {
+    event.preventDefault(); // Предотвращаем стандартное действие отправки формы
+    showCard();
+    // прячем информацию, возвращаем кнопку через 10сек
+    setTimeout(() => {
+      hideCardData();
+    }, 10000);
+  }
+
+  // ________________________________________________________________
+  // разрешаем проверку карты на 10 сек при сабмите формы
+  cardForm.addEventListener("submit", toggleCardData);
+
+  // ________________________________________________________________
+  // Функция, скрывающая данные о карте
+  function hideCardData() {
+    findCardButton.classList.remove("disabled");
+    yourCardData.classList.add("disabled");
+  }
+
+  // ________________________________________________________________
+  //   showCard - доступ к информации о карте, если такая зарегистрирована
+
+  function showCard() {
+    const nameField = document.querySelector(".cards__your-name");
+    const cardNumberField = document.querySelector(".cards__number");
+    // получаем из localStorage обЪект по номеру карты
+    const authorizedUserData = localStorage.getItem(cardNumberField.value);
+    if (authorizedUserData) {
+      // Если он существует
+      const userObject = JSON.parse(authorizedUserData); // делаем из него объект
+      const savedFirstname = userObject.firstname; // и получаем из объекта с данными пользователя нужные
+      const savedLastname = userObject.lastname;
+      const savedcardNumber = userObject.cardNumber;
+      const savedFullname = `${savedFirstname} ${savedLastname}`; // делаем полное имя из localStorage
+
+      // и сравниваем введенные и сохраненные данные
+      if (
+        nameField.value === savedFullname &&
+        cardNumberField.value === savedcardNumber
+      ) {
+        // прячем кнопку и показываем данные о карте
+        findCardButton.classList.add("disabled");
+        yourCardData.classList.remove("disabled");
+      }
+    }
   }
 
   // ________________________________________________________________
@@ -484,6 +614,7 @@ console.log(
   // ________________________________________________________________
   // LOG OUT
 
+  const loginForm = document.querySelector(".login-form");
   const logOutButton = document.querySelector(".profile-log-in__item-logout");
 
   logOutButton.addEventListener("click", logOut);
@@ -491,12 +622,13 @@ console.log(
   function logOut() {
     localStorage.removeItem("authorized"); // удаляем из localStorage данные о залогиненом в данный момент пользователе
     ifAuthorised(); // вызываем функцию, меняющую вид страници на соответствующую
+    loginForm.reset(); // очищаем login-форму на странице
+    cardForm.reset(); // очищаем форму карты на странице
+    hideCardData(); // скрываем данные карты, возвращаем кнопку
   }
 
   // ________________________________________________________________
   // LOG IN
-
-  const loginForm = document.querySelector(".login-form");
 
   loginForm.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -514,12 +646,24 @@ console.log(
 
       function ifRegistered() {
         if (
-          loginField.value === savedEmail || loginField.value === savedCardNumber &&
-          passwordField.value === savedPassword
+          loginField.value === savedEmail ||
+          (loginField.value === savedCardNumber &&
+            passwordField.value === savedPassword)
         ) {
+          ++userObject.visits; // получаем данные о сохраненных визитах, увеличиваем на 1
+          const updatedUserData = JSON.stringify(userObject); // создаем новую строку для объекта
+
+          // Сохраняем эту строку обратно в Local Storage в 2 объекта, заведенных на каждого юзера
+          localStorage.setItem(savedEmail, updatedUserData); // по Email
+          localStorage.setItem(savedCardNumber, updatedUserData); // и по CardNumber
+
           // Сохраняем в localStorage переменную со значением, равным email авторизованного только что пользователя
           localStorage.setItem("authorized", savedEmail);
           ifAuthorised(); // вызываем функцию, меняющую вид авторизованной страници
+          // Обновляем счетчики на странице
+          updateVisits(userObject);
+          updateBooks(userObject);
+          showCard(); // вызываем функцию, показывающую данные карты
         }
       }
       ifRegistered();
