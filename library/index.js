@@ -145,7 +145,7 @@ console.log(
   }
 
   // ________________________________________________________________
-  // МОДАЛЬНЫЕ ОКНА
+  // МОДАЛЬНЫЕ ОКНА, ПОКУПКА КНИГ
 
   const modalLogin = document.querySelector(".modal-log-in");
   const modalRegister = document.querySelector(".modal-register");
@@ -153,13 +153,11 @@ console.log(
   const modalProfile = document.querySelector(".modal-profile");
   const modalBuycard = document.querySelector(".modal-buycard");
 
-  //при клике на любое место боди вызываем ф-ию openModalWindow
-  body.addEventListener("click", openModalWindow);
 
   // ________________________________________________________________
   // кнопка покупки книг(вызывающая окно покупки карты, если таковой нет)
 
-  function buyHandler() {
+  function buyHandler(button) {
     const authorizedEmail = localStorage.getItem("authorized");
 
     if (!authorizedEmail) {
@@ -200,16 +198,78 @@ console.log(
         },
         { once: true }
       );
-
       return;
+    }
+
+    // ________________________________________________________________
+    // Покупка книг
+
+    // Находим ближайшего родителя с классом "favorites__item"(блок с данной книгой)
+    const parent = button.closest(".favorites__item");
+
+    if (parent) {
+      // Находим детей родителя с классом "favorites__text-big-bold" - название книги
+      const title = parent.querySelector(".favorites__text-big-bold");
+      const bookAuthor = parent.querySelector(".author");
+
+      //добавляем детей в массив с книгами
+      if (title && bookAuthor) {
+        const bookTitle = title.textContent.trim();
+        const bookAuthorName = bookAuthor.textContent.trim();
+
+        userObject.books.push({ title: bookTitle, author: bookAuthorName });
+        const updatedUserData = JSON.stringify(userObject); // создаем новую строку для объекта
+        const savedEmail = userObject.email;
+        const savedCardNumber = userObject.cardNumber;
+
+        // Сохраняем эту строку обратно в Local Storage в 2 объекта, заведенных на каждого юзера
+        localStorage.setItem(savedEmail, updatedUserData); // по Email
+        localStorage.setItem(savedCardNumber, updatedUserData); // и по CardNumber
+
+        // меняем кнопку на неактивную
+        button.classList.add("favorites__button-disabled");
+      }
     }
   }
 
+  // ________________________________________________________________
+  // выключение кнопок у купленных пользователлем книг
+
+  // по умолчанию кладем в переменную пустой массив
+  // на случай использования при logout без авторизованного userObject
+  function disableButtons(userObject = []) {
+    // допускаем отсутствие массива и данных в нем
+    const tittlesArray = userObject?.books?.map((book) => book?.title);
+    const books = document.querySelectorAll(".favorites__item");
+
+    books.forEach((book) => {
+      const title = book.querySelector(".favorites__text-big-bold");
+      const button = book.querySelector(".favorites__button");
+
+      if (title) {
+        const bookTitle = title.textContent.trim();
+
+        // также допускаем отсутствие массива
+        if (tittlesArray?.includes(bookTitle)) {
+          // меняем кнопку на неактивную
+          button.classList.add("favorites__button-disabled");
+        } else {
+          // меняем кнопку на активную
+          button.classList.remove("favorites__button-disabled");
+        }
+      }
+    });
+  }
 
   // ________________________________________________________________
-  // ModalWindows close/open
+  // ModalWindows open
+
+
 
   // при клике на любое место боди вызываем ф-ию openModalWindow
+  body.addEventListener("click", openModalWindow);
+
+  // выполняемая функция
   function openModalWindow(event) {
     //определяем, совпадает ли класс элемента, на который кликнули, с заданным
     if (event.target.classList.contains("open-modal-login")) {
@@ -224,10 +284,18 @@ console.log(
       //переключаем стили элементов
       modalProfile.classList.remove("disabled");
       //определяем, совпадает ли класс элемента, на который кликнули, с заданным
-    } else if (event.target.classList.contains("open-modal-buycard")) {
-      buyHandler();
+    } else if (
+      !event.target.closest(".favorites__button-disabled") &&
+      event.target.closest(".open-modal-buycard")
+    ) {
+      buyHandler(event.target);
     }
   }
+
+
+    // ________________________________________________________________
+  // ModalWindows close
+
 
   //при клике на любое место боди вызываем ф-ию closeModalWindow
   body.addEventListener("click", closeModalWindow);
@@ -265,6 +333,8 @@ console.log(
     }
   }
 
+  // ________________________________________________________________
+  //
   // ________________________________________________________________
   // СЛАЙДЕР about
 
@@ -363,8 +433,14 @@ console.log(
     elements.forEach((element) => {
       if (element.classList.contains(selectorId)) {
         element.classList.remove("hidden-slide");
+        setTimeout(() => {
+          element.classList.remove("disabled");
+        }, 1000);
       } else {
         element.classList.add("hidden-slide");
+        setTimeout(() => {
+          element.classList.add("disabled");
+        }, 1000);
       }
     });
   }
@@ -468,7 +544,7 @@ console.log(
       elementsFindCard.forEach((element) => {
         element.classList.remove("disabled");
       });
-
+      disableButtons();
       return; // И останавливаем дальнейшее выполнение функции
     }
 
@@ -514,6 +590,7 @@ console.log(
     updateBooks(userObject);
     // показываем данные о карте
     showCard();
+    disableButtons(userObject);
   }
 
   // ________________________________________________________________
