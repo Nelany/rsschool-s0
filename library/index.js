@@ -1,3 +1,7 @@
+console.log("library part3");
+console.log("Score: 200 / 200");
+
+
 console.log("library part2");
 console.log("Score: 50 / 50");
 console.log("1). Вёрстка соответствует макету.\n Ширина экрана 768px +26");
@@ -153,13 +157,13 @@ console.log(
   const modalProfile = document.querySelector(".modal-profile");
   const modalBuycard = document.querySelector(".modal-buycard");
 
-
   // ________________________________________________________________
-  // кнопка покупки книг(вызывающая окно покупки карты, если таковой нет)
+  // КНОПКА ПОКУПКИ КНИГ(вызывающая окно покупки карты, если таковой нет)
 
   function buyHandler(button) {
     const authorizedEmail = localStorage.getItem("authorized");
 
+    // ПОКУПКА КАРТЫ, если таковой нет
     if (!authorizedEmail) {
       //переключаем стили элементов
       modalLogin.classList.remove("disabled");
@@ -169,13 +173,13 @@ console.log(
     const authorizedUserData = localStorage.getItem(authorizedEmail); // получаем строку с данными пользователя
     const userObject = JSON.parse(authorizedUserData); // и делаем из него объект
 
-    const isCard = userObject.isCard; // получаем из объекта с данными пользователя нужныe
+    const isCard = userObject.isCard; // получаем из объекта с данными пользователя данные о карте
 
     if (!isCard) {
-      //переключаем стили элементов
+      //переключаем стили модального окна покупки карты
       modalBuycard.classList.remove("disabled");
 
-      // модальное окно покупки карты
+      // получаем форму покупки карты
       const buyCardForm = document.querySelector(".modal-buycard__form");
 
       buyCardForm.addEventListener(
@@ -187,7 +191,6 @@ console.log(
           const updatedUserData = JSON.stringify(userObject); // создаем новую строку для объекта
           const savedEmail = userObject.email;
           const savedCardNumber = userObject.cardNumber;
-
           // Сохраняем эту строку обратно в Local Storage в 2 объекта, заведенных на каждого юзера
           localStorage.setItem(savedEmail, updatedUserData); // по Email
           localStorage.setItem(savedCardNumber, updatedUserData); // и по CardNumber
@@ -196,23 +199,22 @@ console.log(
           modalBuycard.classList.add("disabled");
           buyCardForm.reset(); // очищаем поля формы
         },
-        { once: true }
+        { once: true } // после срабатывания обработчика удаляем его
       );
       return;
     }
 
-    // ________________________________________________________________
-    // Покупка книг
-
+    // ПОКУПКА КНИГ - занесение в localStorage
     // Находим ближайшего родителя с классом "favorites__item"(блок с данной книгой)
     const parent = button.closest(".favorites__item");
 
     if (parent) {
-      // Находим детей родителя с классом "favorites__text-big-bold" - название книги
+      // Находим детей родителя с нужным классом - название книги, автора
       const title = parent.querySelector(".favorites__text-big-bold");
       const bookAuthor = parent.querySelector(".author");
+      const trueButton = parent.querySelector(".favorites__button");
 
-      //добавляем детей в массив с книгами
+      //добавляем детей в массив с книгами, убирая лишние пробелы
       if (title && bookAuthor) {
         const bookTitle = title.textContent.trim();
         const bookAuthorName = bookAuthor.textContent.trim();
@@ -227,19 +229,37 @@ console.log(
         localStorage.setItem(savedCardNumber, updatedUserData); // и по CardNumber
 
         // меняем кнопку на неактивную
-        button.classList.add("favorites__button-disabled");
+        trueButton.classList.add("favorites__button-disabled");
+        updateBooks(userObject);
+        disableButtons(userObject);
       }
     }
   }
 
   // ________________________________________________________________
-  // выключение кнопок у купленных пользователлем книг
+  // выключение кнопок у купленных пользователлем книг, составление списка книг в окне профиля
 
   // по умолчанию кладем в переменную пустой массив
   // на случай использования при logout без авторизованного userObject
   function disableButtons(userObject = []) {
-    // допускаем отсутствие массива и данных в нем
+
+    // допускаем отсутствие массива userObject и данных в нем
     const tittlesArray = userObject?.books?.map((book) => book?.title);
+    const profileBooksList = document.querySelector(".modal-profile__ul"); // получаем маркированный список для книг
+
+    if (!tittlesArray) {
+      profileBooksList.innerHTML = ""; // если не существует массива книг, очищаем список
+    } else {
+      if (userObject.books && userObject.books.length > 0) {
+        userObject.books.forEach((book) => {
+          const bookItem = document.createElement("li"); // Создаем элемент списка для каждой книги
+          bookItem.textContent = `${book.title}, ${book.author}`; // Задаем текст элемента
+          bookItem.classList.add("modal-profile__li"); // Добавляем класс
+
+          profileBooksList.appendChild(bookItem); // добавляем купленные книги в список окна профиля
+        });
+      }
+    }
     const books = document.querySelectorAll(".favorites__item");
 
     books.forEach((book) => {
@@ -248,11 +268,11 @@ console.log(
 
       if (title) {
         const bookTitle = title.textContent.trim();
-
         // также допускаем отсутствие массива
         if (tittlesArray?.includes(bookTitle)) {
           // меняем кнопку на неактивную
           button.classList.add("favorites__button-disabled");
+
         } else {
           // меняем кнопку на активную
           button.classList.remove("favorites__button-disabled");
@@ -263,8 +283,6 @@ console.log(
 
   // ________________________________________________________________
   // ModalWindows open
-
-
 
   // при клике на любое место боди вызываем ф-ию openModalWindow
   body.addEventListener("click", openModalWindow);
@@ -292,10 +310,8 @@ console.log(
     }
   }
 
-
-    // ________________________________________________________________
+  // ________________________________________________________________
   // ModalWindows close
-
 
   //при клике на любое место боди вызываем ф-ию closeModalWindow
   body.addEventListener("click", closeModalWindow);

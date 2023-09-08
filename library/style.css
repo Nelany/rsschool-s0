@@ -1397,7 +1397,8 @@ html {
   line-height: 20px;
 }
 .modal-profile__ul {
-  height: 50px;
+  width: 355px;
+  height: 60px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1407,11 +1408,27 @@ html {
   font-size: 20px;
   line-height: 20px;
   letter-spacing: 2px;
+  overflow-y: scroll;
+}
+.modal-profile__li {
+  position: relative;
+}
+.modal-profile__li::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background-color: rgb(12, 12, 14);
+  top: 6px;
+  left: -13px;
+  transform: translate(-50%);
+  border-radius: 50%;
 }
 .modal-profile__footer {
   display: flex;
   gap: 15px;
-  margin-top: 40px;
+  margin-top: 30px;
   font-weight: 400;
   font-size: 20px;
   line-height: 20px;
