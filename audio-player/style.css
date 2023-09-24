@@ -9,7 +9,7 @@ margin: 0;
 
 .content{
   width: 335px;
-  height: 400px;
+  height: 410px;
   transform: translateY(-5%);
   position: relative;
   display: flex;
@@ -41,19 +41,32 @@ margin: 0;
 
 .section1{
   display: flex;
-  margin-top: 15px;
+  margin-top: 12px;
 }
 
 .play-pause-button{
-  width: 30%;
+  width: 16%;
+  margin: 10px 2% 0 8%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.play-pause-img{
+/* .play-pause-img{
   width: 55%;
   transform: translateX(20%);
+} */
+
+.play{
+  background-image: url("./assets/svg/play.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.pause{
+  background-image: url("./assets/svg/pause.png");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .songs-data{
