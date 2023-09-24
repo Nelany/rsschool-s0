@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>audio-player</title>
+</head>
+<body class="body">
+  <div class="content">
+    <div class="img-conteiner">
+      <img src="./assets/img/lemonade.png" alt="picture">
+      <img class="disabled" src="./assets/img/dontstartnow.png" alt="picture">
+    </div>
+
+    <div class="toolbar">
+      <div class="section1">
+        <div class="play-pause-button">
+          <img src="./assets/svg/play.png" alt="play">
+          <img class="disabled" src="./assets/svg/pause.png" alt="pause">
+        </div>
+
+        <div class="songs-data">
+          <div class="songs-artists">
+            <span>Beyonce</span>
+            <span class="disabled">Dua Lipa</span>
+          </div>
+
+          <div class="songs-names">
+            <span>Don't Hurt Yourself</span>
+            <span class="disabled">Don't Start Now</span>
+          </div>
+        </div>
+
+        <div class="buttons-conteiner">
+          <img src="./assets/svg/backward.png" alt="backward">
+          <img src="./assets/svg/forward.png" alt="forward">
+        </div>
+      </div>
+
+      <div class="section2">
+        <div class="song-time">0:00</div>
+        <input type="range" min="0" max="400" value="0">
+        <div class="current-time">0:00</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
