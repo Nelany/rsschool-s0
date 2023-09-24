@@ -5,15 +5,17 @@ const backwardButton = document.querySelector(".backward");
 const forwardButton = document.querySelector(".forward");
 let isPlay = false;
 const songs = [
-  { artist: "Beyonce", songName: "Don't Hurt Yourself", audio: "beyonce.mp3" },
+  { artist: "Beyonce", songName: "Don't Hurt Yourself", audio: "beyonce.mp3", img: "lemonade.png", },
   {
     artist: "Dua Lipa",
     songName: "Don't Start Now",
     audio: "dontstartnow.mp3",
+    img: "dontstartnow.png",
   },
 ];
 const songData = document.querySelector(".songs-data");
 let currentIndex = 0;
+const songImg = document.querySelectorAll(".song-img");
 
 function playAudio() {
   const audio = document.querySelector("audio");
@@ -73,6 +75,10 @@ function setAudio(index) {
   `;
 
   songData.innerHTML = songTemplate;
+
+  songImg.forEach((img)=>{
+    img.src = `./assets/img/${playNow.img}`
+  })
 }
 
 setAudio(currentIndex);
