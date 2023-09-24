@@ -1,6 +1,21 @@
+a,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a{
+  display: block;
+}
+
 .body{
-height: 100vh;
-margin: 0;
+  height: 100vh;
+  margin: 0;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,6 +65,7 @@ margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 /* .play-pause-img{
@@ -89,6 +105,7 @@ margin: 0;
 
 .toggle-button{
   width: 47%;
+  cursor: pointer;
 }
 
 .section2{
@@ -128,6 +145,22 @@ margin: 0;
   display: flex;
   justify-content: start;
   margin-top: 3px;
+}
+
+.footer{
+  width: 95%;
+  height: 30px;
+  position: absolute;
+  box-sizing: border-box;
+  bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.rsschool{
+  width: 75px;
+  height: auto;
 }
 
 
