@@ -10,6 +10,7 @@ a:hover {
 
 .body{
   width: 100%;
+  min-height: 100vh;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -21,12 +22,13 @@ a:hover {
   height: 70px;
   display: flex;
   justify-content: center;
-  border-bottom: 5px solid #ffa500;
+  border-bottom: 5px solid rgb(255, 165, 0);
 }
 
 .content{
   width: 100%;
   max-width: 1280px;
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -62,10 +64,16 @@ a:hover {
   padding: 8px 12px;
   border-radius: 25px;
   outline: none;
-  border: 1px solid #d4d4d4;
+  border: 1px solid rgb(212, 212, 212);
   font-size: 1rem;
   transition: all 0.3s ease;
 }
+
+.input:focus {
+  box-shadow: 0 0 5px rgba(255, 166, 0, 0.821);
+  border: 1px solid rgba(255, 166, 0, 0.452);
+}
+
 
 .search-icon{
   width: 20px;
@@ -79,8 +87,15 @@ a:hover {
   background-size: cover;
 }
 
-
-
+.main{
+  width: 100%;
+  max-width: 1280px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
 
 .img-container{
   width: 380px;
@@ -91,4 +106,36 @@ a:hover {
   background-position: center;
   background-size: cover;
   cursor: pointer;
+}
+
+.footer{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  border-top: 1px solid rgb(255, 165, 0);
+}
+
+.footer-content{
+  width: 100%;
+  max-width: 1280px;
+  height: 70px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.footer-icon{
+  height: 40px;
+}
+
+.footer-icon-img{
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.footer-icon-img:hover{
+  transform: scale(1.1);
 }
