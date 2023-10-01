@@ -61,7 +61,7 @@ a:hover {
 .input{
   box-sizing: border-box;
   width: 100%;
-  padding: 8px 12px;
+  padding: 8px 12px 8px 35px;
   border-radius: 25px;
   outline: none;
   border: 1px solid rgb(212, 212, 212);
@@ -74,7 +74,18 @@ a:hover {
   border: 1px solid rgba(255, 166, 0, 0.452);
 }
 
-
+.clear-icon{
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 17%;
+  left: 2%;
+  cursor: pointer;
+  background: url(./assets/close.svg);
+  background-position: center;
+  background-size: cover;
+  transition: all 0.3s ease;
+}
 .search-icon{
   width: 20px;
   height: 20px;
@@ -111,7 +122,6 @@ a:hover {
   height: 214px;
   margin-top: 15px;
   border-radius: 2px;
-  background-image: url(./assets/photo-1621238281284-d186cb6813fb.jpg);
   background-position: center;
   background-size: cover;
   cursor: pointer;
