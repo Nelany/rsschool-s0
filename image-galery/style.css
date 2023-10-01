@@ -85,6 +85,15 @@ a:hover {
   background: url(./assets/search.svg);
   background-position: center;
   background-size: cover;
+  transition: all 0.3s ease;
+}
+
+.search-icon:hover {
+  transform: scale(1.2);
+}
+
+.search-icon:active{
+  filter: brightness(0) saturate(100%) invert(72%) sepia(32%) saturate(5314%) hue-rotate(359deg) brightness(104%) contrast(106%);
 }
 
 .main{
@@ -138,4 +147,8 @@ a:hover {
 
 .footer-icon-img:hover{
   transform: scale(1.1);
+}
+
+.footer-icon-img:active{
+  filter: brightness(0) saturate(100%) invert(72%) sepia(32%) saturate(5314%) hue-rotate(359deg) brightness(104%) contrast(106%);
 }
