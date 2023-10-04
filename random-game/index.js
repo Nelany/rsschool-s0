@@ -52,6 +52,12 @@ function draw() {
     y: goY,
   };
 
+
+  if(goX < 0 || goX > cell * 11
+    || goY < 0 || goY > cell * 9)
+    clearInterval(game);
+
+
   if(goX === foodPlace.x && goY === foodPlace.y){
     newScore++;
     context.clearRect(foodPlace.x, foodPlace.y, cell, cell);
@@ -62,6 +68,11 @@ function draw() {
   } else {
   let tail = snakePlace.pop();
   context.clearRect(tail.x, tail.y, cell, cell);
+  };
+
+  for(let i = 0; i <snakePlace.length; i++) {
+    if(goHead.x === snakePlace[i].x && goHead.y === snakePlace[i].y)
+    clearInterval(game);
   };
 
   snakePlace.unshift(goHead);
