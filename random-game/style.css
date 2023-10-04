@@ -23,6 +23,11 @@
 }
 
 .img{
+  width: 47px;
+  height: 47px;
+}
+
+.img1{
   position: absolute;
   width: 47px;
   top: 42px;
