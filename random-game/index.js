@@ -144,7 +144,7 @@ function displayScores() {
   let scores = JSON.parse(localStorage.getItem("scores")) || [];
   scores.forEach((score, index) => {
     const scoreElement = document.createElement("li");
-    scoreElement.textContent = `Game ${index + 1}: ${score}`;
+    scoreElement.textContent = `Game ${index + 1}: score ${score}`;
     results.appendChild(scoreElement);
   });
 }
