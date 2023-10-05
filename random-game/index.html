@@ -1,42 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>snake</title>
-  <link rel="stylesheet" href="./style.css">
-</head>
-<body class="body">
-  <div class="results-text modal-opener">Results</div>
-  <div class="score-text">Score: <span class="score"></span></div>
-  <div class="background">
-    <canvas class="canvas" width="564px" height="470px"></canvas>
-  </div>
-  <footer class="footer">
-    <a class="footer-icon" href="https://github.com/Nelany"><img class="footer-icon" src="./assets/github.svg" alt=""></a>
-    <div>2023</div>
-    <a class="footer-icon" href="https://rs.school/js-stage0/"><img class="footer-icon" src="./assets/rs_school_js.svg" alt=""></a>
-  </footer>
-
-  <div class="modal modal-closer disabled">
-    <div class="modal__content">
-      <img class="close modal-closer" src="./assets/close.png" alt="close">
-      <h2 class="modal__h2">Results</h2>
-      <ul class="results">
-        <li class="result">100</li>
-        <li class="result">555</li>
-        <li class="result">555</li>
-        <li class="result">555</li>
-        <li class="result">555</li>
-        <li class="result">555</li>
-        <li class="result">555</li>
-        <li class="result">555</li>
-        <li class="result">555</li>
-        <li class="result">555</li>
-      </ul>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>snake</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="body">
+    <div class="results-text modal-opener">Results</div>
+    <div class="score-text">Score: <span class="score"></span></div>
+    <div class="background">
+      <canvas class="canvas" width="564px" height="470px"></canvas>
     </div>
-  </div>
+    <footer class="footer">
+      <a class="footer-icon" href="https://github.com/Nelany"
+        ><img class="footer-icon" src="./assets/github.svg" alt=""
+      /></a>
+      <div>2023</div>
+      <a class="footer-icon" href="https://rs.school/js-stage0/"
+        ><img class="footer-icon" src="./assets/rs_school_js.svg" alt=""
+      /></a>
+    </footer>
 
-  <script src="./index.js"></script>
-</body>
+    <div class="modal modal-closer disabled">
+      <div class="modal__content">
+        <img class="close modal-closer" src="./assets/close.png" alt="close" />
+        <h2 class="modal__h2">Results</h2>
+        <ul class="results"></ul>
+      </div>
+    </div>
+
+    <script src="./index.js"></script>
+  </body>
 </html>

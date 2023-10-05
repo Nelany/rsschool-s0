@@ -21,44 +21,41 @@ snakePlace[0] = {
   y: 5 * cell,
 };
 
+const eyes = new Image();
+eyes.src = "./assets/eyes5.png";
+
 document.addEventListener("keydown", route);
 let go;
 
 function route(event) {
-  if(event.keyCode === 37 && go !== "right")
-    go = "left";
-  if(event.keyCode === 38 && go !== "down")
-    go = "up";
-  if(event.keyCode === 39 && go !== "left")
-    go = "right";
-  if(event.keyCode === 40 && go !== "up")
-    go = "down";
-};
+  if (event.keyCode === 37 && go !== "right") go = "left";
+  if (event.keyCode === 38 && go !== "down") go = "up";
+  if (event.keyCode === 39 && go !== "left") go = "right";
+  if (event.keyCode === 40 && go !== "up") go = "down";
+}
 
 function draw() {
-
   context.drawImage(food, foodPlace.x, foodPlace.y, cell, cell);
 
   let goX = snakePlace[0].x;
   let goY = snakePlace[0].y;
 
-  if(go === "up") goY -= cell;
-  if(go === "down") goY += cell;
-  if(go === "left") goX -= cell;
-  if(go === "right") goX += cell;
+  if (go === "up") goY -= cell;
+  if (go === "down") goY += cell;
+  if (go === "left") goX -= cell;
+  if (go === "right") goX += cell;
 
   let goHead = {
     x: goX,
     y: goY,
   };
 
-
-  if(goX < 0 || goX > cell * 11
-    || goY < 0 || goY > cell * 9)
+  if (goX < 0 || goX > cell * 11 || goY < 0 || goY > cell * 9) {
     clearInterval(game);
+    saveScore(newScore);
+  }
 
-
-  if(goX === foodPlace.x && goY === foodPlace.y){
+  if (goX === foodPlace.x && goY === foodPlace.y) {
     newScore++;
     context.clearRect(foodPlace.x, foodPlace.y, cell, cell);
     foodPlace = {
@@ -66,38 +63,65 @@ function draw() {
       y: Math.floor(Math.random() * 10) * cell,
     };
   } else {
-  let tail = snakePlace.pop();
-  context.clearRect(tail.x, tail.y, cell, cell);
-  };
+    let tail = snakePlace.pop();
+    context.clearRect(tail.x, tail.y, cell, cell);
+  }
 
-  for(let i = 0; i <snakePlace.length; i++) {
-    if(goHead.x === snakePlace[i].x && goHead.y === snakePlace[i].y)
-    clearInterval(game);
-  };
+  for (let i = 0; i < snakePlace.length; i++) {
+    if (goHead.x === snakePlace[i].x && goHead.y === snakePlace[i].y) {
+      clearInterval(game);
+      saveScore(newScore);
+    }
+  }
 
   snakePlace.unshift(goHead);
 
-  for(let i = 0; i < snakePlace.length; i++) {
+  for (let i = 0; i < snakePlace.length; i++) {
+    context.clearRect(snakePlace[i].x, snakePlace[i].y, cell, cell);
     context.drawImage(snake, snakePlace[i].x, snakePlace[i].y, cell, cell);
-  };
+    if (i === 0) {
+      context.drawImage(eyes, snakePlace[i].x + 8, snakePlace[i].y + 7, 30, 30);
+    }
+  }
 
   score.textContent = newScore;
-};
+}
 
 let game = setInterval(draw, 300);
+
+
 
 const body = document.querySelector(".body");
 const modal = document.querySelector(".modal");
 
 body.addEventListener("click", openCloseModalWindow);
 
-  function openCloseModalWindow(event) {
-    //определяем, совпадает ли класс элемента, на который кликнули, с заданным
-    if (event.target.classList.contains("modal-closer")) {
-      //переключаем стили элементов
-      modal.classList.add("disabled");
-      } else if (event.target.classList.contains("modal-opener")) {
-        //переключаем стили элементов
-        modal.classList.remove("disabled");
-      }
-    };
+function openCloseModalWindow(event) {
+  if (event.target.classList.contains("modal-closer")) {
+    modal.classList.add("disabled");
+  } else if (event.target.classList.contains("modal-opener")) {
+    displayScores();
+    modal.classList.remove("disabled");
+  }
+}
+
+function saveScore(score) {
+  let scores = JSON.parse(localStorage.getItem("scores")) || [];
+  scores.push(score);
+  if (scores.length > 10) {
+    scores.shift();
+  }
+  localStorage.setItem("scores", JSON.stringify(scores));
+}
+
+function displayScores() {
+  const results = document.querySelector(".results");
+  results.innerHTML = "";
+
+  let scores = JSON.parse(localStorage.getItem("scores")) || [];
+  scores.forEach((score, index) => {
+    const scoreElement = document.createElement("li");
+    scoreElement.textContent = `Game ${index + 1}: ${score}`;
+    results.appendChild(scoreElement);
+  });
+}
