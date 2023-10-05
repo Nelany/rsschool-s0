@@ -86,13 +86,18 @@ function draw() {
 
 let game = setInterval(draw, 300);
 
+const body = document.querySelector(".body");
+const modal = document.querySelector(".modal");
 
+body.addEventListener("click", openCloseModalWindow);
 
-
-food.onload = function() {
-
-  const width = 47;
-  const height = 47;
-
-  context.drawImage(food, 0, 0, width, height);
-};
+  function openCloseModalWindow(event) {
+    //определяем, совпадает ли класс элемента, на который кликнули, с заданным
+    if (event.target.classList.contains("modal-closer")) {
+      //переключаем стили элементов
+      modal.classList.add("disabled");
+      } else if (event.target.classList.contains("modal-opener")) {
+        //переключаем стили элементов
+        modal.classList.remove("disabled");
+      }
+    };
