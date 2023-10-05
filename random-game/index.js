@@ -4,28 +4,49 @@ let cell = 47;
 let score = document.querySelector(".score");
 let newScore = 0;
 
-const food = new Image();
-food.src = "./assets/apple.png";
-
-let foodPlace = {
-  x: Math.floor(Math.random() * 12) * cell,
-  y: Math.floor(Math.random() * 10) * cell,
-};
 
 const snake = new Image();
 snake.src = "./assets/circle.png";
 
 let snakePlace = [];
-snakePlace[0] = {
-  x: 4 * cell,
-  y: 5 * cell,
+let go;
+
+function snakePlaceStart() {
+  go = null;
+  snakePlace = [];
+  snakePlace[0] = {
+    x: 4 * cell,
+    y: 5 * cell,
+  };
+}
+
+snakePlaceStart();
+
+
+const food = new Image();
+food.src = "./assets/apple.png";
+
+let foodPlace;
+
+function setFoodPlace() {
+  foodPlace = {
+    x: Math.floor(Math.random() * 12) * cell,
+    y: Math.floor(Math.random() * 10) * cell,
+  };
+
+  for (let i = 0; i < snakePlace.length; i++) {
+    if (foodPlace.x === snakePlace[i].x && foodPlace.y === snakePlace[i].y) {
+      setFoodPlace();
+    }
+  }
 };
+
+setFoodPlace();
 
 const eyes = new Image();
 eyes.src = "./assets/eyes5.png";
 
 document.addEventListener("keydown", route);
-let go;
 
 function route(event) {
   if (event.keyCode === 37 && go !== "right") go = "left";
@@ -58,10 +79,7 @@ function draw() {
   if (goX === foodPlace.x && goY === foodPlace.y) {
     newScore++;
     context.clearRect(foodPlace.x, foodPlace.y, cell, cell);
-    foodPlace = {
-      x: Math.floor(Math.random() * 12) * cell,
-      y: Math.floor(Math.random() * 10) * cell,
-    };
+    setFoodPlace();
   } else {
     let tail = snakePlace.pop();
     context.clearRect(tail.x, tail.y, cell, cell);
@@ -89,8 +107,6 @@ function draw() {
 
 let game = setInterval(draw, 300);
 
-
-
 const body = document.querySelector(".body");
 const modal = document.querySelector(".modal");
 
@@ -102,6 +118,13 @@ function openCloseModalWindow(event) {
   } else if (event.target.classList.contains("modal-opener")) {
     displayScores();
     modal.classList.remove("disabled");
+  } else if (event.target.classList.contains("start")) {
+    newScore = 0;
+    clearInterval(game);
+    clearCanvas();
+    setFoodPlace();
+    snakePlaceStart();
+    game = setInterval(draw, 300);
   }
 }
 
@@ -124,4 +147,8 @@ function displayScores() {
     scoreElement.textContent = `Game ${index + 1}: ${score}`;
     results.appendChild(scoreElement);
   });
+}
+
+function clearCanvas() {
+  context.clearRect(0, 0, cell * 12, cell * 10);
 }
