@@ -4,7 +4,6 @@ let cell = 47;
 let score = document.querySelector(".score");
 let newScore = 0;
 
-
 const snake = new Image();
 snake.src = "./assets/circle.png";
 
@@ -22,13 +21,29 @@ function snakePlaceStart() {
 
 snakePlaceStart();
 
+const foodArray = [
+  "./assets/apple.png",
+  "./assets/apple.png",
+  "./assets/apple.png",
+  "./assets/apple.png",
+  "./assets/apple.png",
+  "./assets/cookie1.png",
+  "./assets/cookie2.png",
+  "./assets/cookie3.png",
+  "./assets/cookie4.png",
+  "./assets/cookie5.png",
+  "./assets/cookie6.png",
+  "./assets/cookie7.png",
+  "./assets/cookie8.png",
+  "./assets/cookie9.png",
+];
 
 const food = new Image();
-food.src = "./assets/apple.png";
 
 let foodPlace;
 
 function setFoodPlace() {
+  food.src = `${foodArray[Math.floor(Math.random() * foodArray.length)]}`;
   foodPlace = {
     x: Math.floor(Math.random() * 12) * cell,
     y: Math.floor(Math.random() * 10) * cell,
