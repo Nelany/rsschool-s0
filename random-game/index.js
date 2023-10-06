@@ -70,6 +70,13 @@ function route(event) {
   if (event.keyCode === 40 && go !== "up") go = "down";
 }
 
+function playAudio() {
+  const audio = document.querySelector(".audio");
+  audio.playbackRate = 1.5;
+  audio.currentTime = 0.7;
+  audio.play();
+};
+
 function draw() {
   context.drawImage(food, foodPlace.x, foodPlace.y, cell, cell);
 
@@ -93,6 +100,7 @@ function draw() {
 
   if (goX === foodPlace.x && goY === foodPlace.y) {
     newScore++;
+    playAudio();
     context.clearRect(foodPlace.x, foodPlace.y, cell, cell);
     setFoodPlace();
   } else {
