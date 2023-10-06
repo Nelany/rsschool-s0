@@ -10,15 +10,28 @@
   background-repeat: no-repeat;
   background-position: 50% 0%;
   background-size: 630px 100%;
+  font-family: 'Amatic SC', cursive;
+  font-size: 25px;
+  letter-spacing: 3px;
+  /* font-weight: 900; */
 }
 
-.start{
-  margin-top: 30px;
+.tittles{
+  width: 564px;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  margin-top: 20px;
+  padding: 0 10px;
+}
+
+.score-text{
+  /* font-weight: 900; */
+  font-size: 35px;
 }
 
 .results-text{
   font-weight: 700;
-  font-size: large;
   text-decoration: underline;
   cursor: pointer;
   transition: all 0.4s;
@@ -31,17 +44,17 @@ cursor: pointer;
 
 .background{
   width: 564px;
-    height: 600px;
+  height: 600px;
   position: relative;
   background: url(./assets/page.webp);
   background-repeat: no-repeat;
-  background-position: 50% 30%;
+  background-position: 50% 10%;
   background-size: auto 80%;
 }
 
 .canvas{
   position: absolute;
-  top: 42px;
+  top: 18px;
 }
 
 .footer{
@@ -53,6 +66,8 @@ cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-weight: 700;
+  font-size: 20px;
 }
 
 .footer-icon{
@@ -77,6 +92,7 @@ cursor: pointer;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
   transition: all 0.4s;
+  font-weight: 900;
 }
 .modal__content {
   position: relative;
@@ -94,7 +110,7 @@ cursor: pointer;
   width: 20px;
   position: absolute;
   top: 7px;
-  right: 15px;
+  right: 12px;
   transition: all 0.4s;
 }
 

@@ -4,12 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>snake</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap"
+      rel="stylesheet" />
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body class="body">
+    <div class="tittles">
     <div class="results-text start">Start</div>
-    <div class="results-text modal-opener">Results</div>
     <div class="score-text">Score: <span class="score"></span></div>
+    <div class="results-text modal-opener">Results</div>
+  </div>
     <div class="background">
       <canvas class="canvas" width="564px" height="470px"></canvas>
     </div>
@@ -27,7 +33,7 @@
       <div class="modal__content">
         <img class="close modal-closer" src="./assets/close.png" alt="close" />
         <h2 class="modal__h2">Results</h2>
-        <ul class="results"></ul>
+        <ol class="results"></ol>
       </div>
     </div>
 
